@@ -51,9 +51,9 @@ Shadow puppet analogy (linear projection from 3- to 2D):
     `devtools::install_github("nspyrison/spinifex")`
 
 &lt;br&gt;
-Already implemented in R package `tourr`*(Wickham et al. 2011)*, available on CRAN: 
+Already implemented in R package `tourr`*(Wickham et al. 2011)*, available on CRAN:
 
-- Random choice - *grand tour* random forest walk in `\(p\)`-space *(Asimov 1985)*
+- Random choice - *grand tour* random forest walk in `\(p\)`-space *Asimov 1985*
 - Precomputed choice - *eg.* *little tour* step through increments of all variables in order *(McDonald 1982)*
 - Data driven - *guided tour* projection pursuit on objective function *(Hurley &amp; Buja 1990)*
 
@@ -125,6 +125,8 @@ Created with R package `tourr` *Wickham et al. 2011*
 ]
 
 .pull-right[ 
+As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/).
+
 
 &lt;img src="./images/f_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
 ]
@@ -140,9 +142,8 @@ Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018
 &lt;img src="./images/DIS_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
 ]
 .pull-right[
-&lt;br&gt;
-- Summarize with 6 principal components, ~48% of the variation in the data. &lt;br&gt;&lt;br&gt;
-- Find the starting basis from previously published figures. &lt;br&gt;&lt;br&gt;
+- Summarize with 6 principal components, ~48% of the variation in the data &lt;br&gt;&lt;br&gt;
+- Find the starting basis from previously published figures &lt;br&gt;&lt;br&gt;
 - When the contribution of PC6 is full, the plane of green points extends into the plane of sight &lt;br&gt;&lt;br&gt;
 - When the contribution is zeroed, the line purple points is approaching a head on view
 ]
@@ -180,9 +181,10 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 *Future case study*
 
-&lt;img src="./images/f_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
-
 As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/).
+
+&lt;img src="./images/f_mt.gif" width="35%" height="35%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -190,7 +192,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 &lt;img src="./images/nelson98fig.PNG" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
 
-- 2D tours in head tracked VR, vs 2D tours on 2D monitor
+- 2D tours in head tracked VR vs standard monitor
 
 *Nelson et. al. 1998*
 
@@ -210,7 +212,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 &lt;img src="./images/wagner18fig.PNG" width="30%" height="30%" style="display: block; margin: auto;" /&gt;
 
-- 2D and 3D scatterplot of PCA on standard monitor and head mounted VR
+- 2D and 3D scatterplots of PCA on standard monitor and head mounted VR
 
 *Wagner et. al. 2018*
 
@@ -248,10 +250,10 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 ** Does allowing the user to steer the tour, facilitate the exploration and understanding
 of the sensitivity of structure to the original variables or parameters? **
 
-- A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
+- A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
     - `spinifex` in R
 - B) What benefits does UCS provide over popular alternatives?
-    - case study: static linear vs non-linear vs dynamic linear
+    - case study: static linear vs static non-linear vs dynamic linear
 - C) How do we extend UCS to 3D?
     - experimental design: `spinifex` and `IATK`
 - D) Does UCS with 3D displays provide perception benefits over 2D displays?
