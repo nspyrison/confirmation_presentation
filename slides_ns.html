@@ -33,7 +33,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 # Dynamic low-dimensional embeddings, tours
 
-Linear projection of multivariate numeric data from `\(p\)` to `\(d\)` dimension as `\(p-\)`space is rotated. Collectively known at **tours**.
+Linear projection of multivariate numeric data from `\(p\)` to `\(d\)` dimension as `\(p-\)`space is rotated, collectively known at **tours**
 
 - Useful for indentifying clusters, outliers, and structure
 
@@ -45,17 +45,17 @@ Shadow puppet analogy (linear projection from 3- to 2D):
 
 # Tour typology
 
-- Manual choice - **manual tour** selecting a variable and manipulation *(Cook &amp; Buja 1997)*
+- Manual choice - **manual tour** selecting a variable and manipulation *Cook &amp; Buja 1997*
     - Particularly useful in in exploring the local structure of an interesting feature
     - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
 
 &lt;br&gt;
-Already implemented in R package `tourr`*(Wickham et al. 2011)*, available on CRAN:
+Already implemented in R package `tourr` *Wickham et al. 2011*, available on CRAN:
 
 - Random choice - *grand tour* random forest walk in `\(p\)`-space *Asimov 1985*
-- Precomputed choice - *eg.* *little tour* step through increments of all variables in order *(McDonald 1982)*
-- Data driven - *guided tour* projection pursuit on objective function *(Hurley &amp; Buja 1990)*
+- Precomputed choice - *eg.* *little tour* step through increments of all variables in order *McDonald 1982*
+- Data driven - *guided tour* projection pursuit on objective function *Hurley &amp; Buja 1990*
 
 
 ---
@@ -64,7 +64,7 @@ Already implemented in R package `tourr`*(Wickham et al. 2011)*, available on CR
 
 .pull-left[
 &lt;br&gt;
-- Linear combination of the variables displayed on a unit circle, a *reference frame*. &lt;br&gt;&lt;br&gt;
+- Linear combination of the variables displayed on a unit circle, a *reference frame* &lt;br&gt;&lt;br&gt;
 - This is a *guided tour*, uses projection pursuit to maximize white space in the middle of a projection
 ]
 
@@ -74,13 +74,12 @@ Already implemented in R package `tourr`*(Wickham et al. 2011)*, available on CR
 
 Created with R package `tourr` *Wickham et al. 2011*
 
-
 ---
 
 # RO #A) 2D user controlled steering
 
 **Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook &amp; Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+- Yes: *manual tour* applying *Cook &amp; Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 &lt;br&gt;&lt;br&gt;
@@ -97,7 +96,8 @@ Created with R package `tourr` *Wickham et al. 2011*
 # RO #A) 2D user controlled steering
 
 **Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook &amp; Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+
+- Yes: *manual tour* applying *Cook &amp; Buja 1997* `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 &lt;img src="slides_ns_files/figure-html/unnamed-chunk-3-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
@@ -106,7 +106,7 @@ Created with R package `tourr` *Wickham et al. 2011*
 .pull-right[
 &lt;br&gt;&lt;br&gt;
 - Lay the reference frame on a table&lt;br&gt;&lt;br&gt;
-- Initialize a manipulation space, a means to control the contributions of the selected manipulation variable.
+- Initialize a manipulation space, a means to control the contributions of the selected manipulation variable
 ]
 
 ---
@@ -114,21 +114,21 @@ Created with R package `tourr` *Wickham et al. 2011*
 # RO #A) 2D user controlled steering
 
 **Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook &amp; Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+- Yes: *manual tour* applying *Cook &amp; Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 &lt;br&gt;&lt;br&gt;
 **Algorithm,** *over a sequence of angles:*
 
 - Project manipulation space
-- Rotate the manipulation space  
+- Rotate the manipulation space
 ]
 
 .pull-right[ 
-As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/).
-
 
 &lt;img src="./images/f_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+
+As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 ]
 
 ---
@@ -140,51 +140,67 @@ Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018
 .pull-left[
 
 &lt;img src="./images/DIS_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
 ]
+
 .pull-right[
-- Summarize with 6 principal components, ~48% of the variation in the data &lt;br&gt;&lt;br&gt;
-- Find the starting basis from previously published figures &lt;br&gt;&lt;br&gt;
-- When the contribution of PC6 is full, the plane of green points extends into the plane of sight &lt;br&gt;&lt;br&gt;
+- Summarized in 6 principal components, ~48% of the variation in the data &lt;br&gt;
+- Starting basis from previously published figures &lt;br&gt;&lt;br&gt;
+- When the contribution of PC6 is full, the plane of green points extends into the plane of sight &lt;br&gt;
 - When the contribution is zeroed, the line purple points is approaching a head on view
 ]
 
-As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/).
 
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- PCA &amp; static linear transformations
+# RO #B) 2D UCS vs alternatives -- PCA &amp; static linear
+
+**What benefits does UCS provide over popular alternatives?**
 
 *Future case study*
 
 &lt;img src="slides_ns_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
 
 - Best we can do in `\(d\)`-dim static projection
-- Have transparency to variables
+- Variable transparency; map to variable space
 - How much variation is lost?
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- tSNE &amp; Non-linear transformations
+# RO #B) 2D UCS vs alternatives -- tSNE &amp; non-linear
+
+**What benefits does UCS provide over popular alternatives?**
 
 *Future case study*
 
 &lt;img src="slides_ns_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 
 - Variables opacity; how different? in which direction? What's the relationship?
-- can suffer from overfit
+- Can suffer from overfitting
 - Binary indicator of clustering/outliers
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- dynamic low dimensional embeddings
+# RO #B) 2D UCS vs alternatives -- dymanic linear
+
+**What benefits does UCS provide over popular alternatives?**
 
 *Future case study*
 
-As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/).
 
-&lt;img src="./images/f_mt.gif" width="35%" height="35%" style="display: block; margin: auto;" /&gt;
+.pull-left[
+&lt;img src="./images/f_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
 
+As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
+]
+
+.pull-right[
+&lt;br&gt;
+- Variable transparency; map to variable space
+- Subsets of variation viewed as projection changes
+]
 
 ---
 
@@ -218,7 +234,9 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 ---
 
-# RO #C) Extending UCS to 3D?
+# RO #C) Extending UCS to 3D
+
+**How do we extend UCS to 3D?**
 
 *future exploratory design*
 
@@ -235,6 +253,8 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 ---
 
 # RO #D) low-dim embeddings across display type
+
+**Does UCS with 3D displays provide perception benefits over 2D displays?**
 
 *future empirical study*
 
@@ -261,7 +281,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# Research timeline
+### Research timeline
 
 &lt;img src="slides_ns_files/figure-html/timeline-1.png" style="display: block; margin: auto;" /&gt;
 
@@ -270,22 +290,22 @@ of the sensitivity of structure to the original variables or parameters? **
 # Milestone documents
 
 - FIT 5144 hours
-    - \&gt;120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review.
+    - \&gt;120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
-    - FIT5113: 2018 S2, **Exemption submitted**, forwarded 14/02/2019.
+    - FIT5113: 2018 S2, **Exemption submitted**, forwarded 14/02/2019
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed**
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
-    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
+    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon")
 
 ---
 class: center, middle
 
 # Thanks!
 
-Slides created in R using rmarkdown and xaringan.
+Slides created in R using rmarkdown and xaringan
 
 Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019)
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
@@ -298,28 +318,31 @@ Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyr
 *Xie, 2018*
 ]
 
-
-
 ---
 
 # References (1/2)
 
 In order of appearance:
 
-Wickham, H., Cook, D., Hofmann, H., &amp; Buja, A. (2011). tourr : An R Package for Exploring Multivariate Data with Projections. Journal of Statistical Software, 40(2). https://doi.org/10.18637/jss.v040.i02
-
 Cook, D., &amp; Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464–480. https://doi.org/10.2307/1390747
 
+Wickham, H., Cook, D., Hofmann, H., &amp; Buja, A. (2011). tourr : An R Package for Exploring Multivariate Data with Projections. Journal of Statistical Software, 40(2). https://doi.org/10.18637/jss.v040.i02
+
+Asimov, D. (1985). The grand tour: a tool for viewing multidimensional data. SIAM Journal on Scientific and Statistical Computing, 6(1), 128–143.
+
+McDonald, J. A. (1982). INTERACTIVE GRAPHICS FOR DATA ANALYSIS.
+
+Hurley, C., &amp; Buja, A. (1990). Analyzing High-Dimensional Data with Motion Graphics. SIAM Journal on Scientific and Statistical Computing, 11(6), 1193–1211. https://doi.org/10.1137/0911068
+
 Wang, B.-T., Hobbs, T. J., Doyle, S., Gao, J., Hou, T.-J., Nadolsky, P. M., &amp; Olness, F. I. (2018). Visualizing the sensitivity of hadronic experiments to nucleon structure. ArXiv Preprint ArXiv:1803.02777.
-
-Nelson, L., Cook, D., &amp; Cruz-Neira, C. (1998). XGobi vs the C2: Results of an Experiment Comparing Data Visualization in a 3-D Immer- sive Virtual Reality Environment with a 2-D Workstation Display. Computational Statistics, 14(1), 39–52.
-
-Gracia, A., González, S., Robles, V., Menasalvas, E., &amp; von Landesberger, T. (2016). New insights into the suitability of the third dimension for visualizing multivariate/multidimensional data: A study based on loss of quality quantification. Information Visualization, 15(1), 3–30. https://doi.org/10.1177/1473871614556393
-
 
 ---
 
 # References (2/2)
+
+Nelson, L., Cook, D., &amp; Cruz-Neira, C. (1998). XGobi vs the C2: Results of an Experiment Comparing Data Visualization in a 3-D Immer- sive Virtual Reality Environment with a 2-D Workstation Display. Computational Statistics, 14(1), 39–52.
+
+Gracia, A., González, S., Robles, V., Menasalvas, E., &amp; von Landesberger, T. (2016). New insights into the suitability of the third dimension for visualizing multivariate/multidimensional data: A study based on loss of quality quantification. Information Visualization, 15(1), 3–30. https://doi.org/10.1177/1473871614556393
 
 Wagner Filho, J., Rey, M., Freitas, C., &amp; Nedel, L. (2018). Immersive Visualization of Abstract Information: An Evaluation on Dimensionally-Reduced Data Scatterplots.
 

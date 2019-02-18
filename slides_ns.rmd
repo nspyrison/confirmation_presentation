@@ -52,7 +52,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 # Dynamic low-dimensional embeddings, tours
 
-Linear projection of multivariate numeric data from $p$ to $d$ dimension as $p-$space is rotated. Collectively known at **tours**.
+Linear projection of multivariate numeric data from $p$ to $d$ dimension as $p-$space is rotated, collectively known at **tours**
 
 - Useful for indentifying clusters, outliers, and structure
 
@@ -100,7 +100,7 @@ Created with R package `tourr` *Wickham et al. 2011*
 # RO #A) 2D user controlled steering
 
 **Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook & Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+- Yes: *manual tour* applying *Cook & Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 <br><br>
@@ -128,7 +128,8 @@ view_basis(f_bas, labels = colnames(f_dat))
 # RO #A) 2D user controlled steering
 
 **Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook & Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+
+- Yes: *manual tour* applying *Cook & Buja 1997* `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 ```{r, out.height='80%', out.width='80%'}
@@ -139,7 +140,7 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 .pull-right[
 <br><br>
 - Lay the reference frame on a table<br><br>
-- Initialize a manipulation space, a means to control the contributions of the selected manipulation variable.
+- Initialize a manipulation space, a means to control the contributions of the selected manipulation variable
 ]
 
 ---
@@ -147,19 +148,17 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 # RO #A) 2D user controlled steering
 
 **Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook & Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+- Yes: *manual tour* applying *Cook & Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 <br><br>
 **Algorithm,** *over a sequence of angles:*
 
 - Project manipulation space
-- Rotate the manipulation space  
+- Rotate the manipulation space
 ]
 
 .pull-right[ 
-As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/).
-
 ```{r, results='hide'}
 library(spinifex)
 f_ang  <- .15
@@ -177,6 +176,8 @@ gganimate::anim_save(filename = "./images/f_mt.gif", animation = f_mt,
 ```{r, out.width='70%', out.height='70%'}
 knitr::include_graphics("./images/f_mt.gif")
 ```
+
+As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 ]
 
 ---
@@ -208,7 +209,10 @@ gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt,
 ```{r, out.width='70%', out.height='70%'}
 knitr::include_graphics("./images/DIS_mt.gif")
 ```
+
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
 ]
+
 .pull-right[
 - Summarized in 6 principal components, ~48% of the variation in the data <br>
 - Starting basis from previously published figures <br><br>
@@ -216,14 +220,14 @@ knitr::include_graphics("./images/DIS_mt.gif")
 - When the contribution is zeroed, the line purple points is approaching a head on view
 ]
 
-As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/).
 
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- PCA & static linear transformations
+# RO #B) 2D UCS vs alternatives -- PCA & static linear
 
 **What benefits does UCS provide over popular alternatives?**
+
 *Future case study*
 
 ```{r, fig.width=10.4, fig.height=4}
@@ -271,17 +275,18 @@ plot_grid(gg_f_pca_proj, gg_f_pca_var, align = "h", rel_widths = c(2, 1.6))
 ```
 
 - Best we can do in $d$-dim static projection
-- Have transparency to variables
+- Variable transparency; map to variable space
 - How much variation is lost?
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- tSNE & Non-linear transformations
+# RO #B) 2D UCS vs alternatives -- tSNE & non-linear
 
 **What benefits does UCS provide over popular alternatives?**
+
 *Future case study*
 
-```{r, results='hide', fig.width=6.4, fig.height=4}
+```{r, results='hide', fig.width=6.1, fig.height=3.8}
 f_tsne <- Rtsne(f_dat, dims = 2, perplexity=15, verbose=TRUE, max_iter = 500)
 colnames(f_tsne$Y) <- paste0("tS",1:2)
 f_tsne_proj <- tourr::rescale(f_tsne$Y) %>% as.data.frame()
@@ -300,24 +305,25 @@ ggplot() +
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- dynamic low dimensional embeddings
+# RO #B) 2D UCS vs alternatives -- dymanic linear
 
 **What benefits does UCS provide over popular alternatives?**
+
 *Future case study*
 
-As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/).
 
 .pull-left[
-```{r, out.width='35%', out.height='35%'}
+```{r, out.width='70%', out.height='70%'}
 knitr::include_graphics("./images/f_mt.gif")
 ```
+
+As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 ]
 
 .pull-right[
 <br>
-- Variables tran; how different? in which direction? What's the relationship?
-- can suffer from overfit
-- Binary indicator of clustering/outliers
+- Variable transparency; map to variable space
+- Subsets of variation viewed as projection changes
 ]
 
 ---
@@ -409,9 +415,9 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# Research timeline
+### Research timeline
 
-```{r timeline, echo=F}
+```{r timeline, echo=F, fig.height=8, fig.width=12}
 #out.extra='angle=90
 ## working from: https://stats.andrewheiss.com/misc/gantt.html
 library(tidyverse)
@@ -432,11 +438,11 @@ tasks <- tribble(
   "2019-09-01", "2019-12-01", "UCS in 3D",  "UCS in 3D Submission (VAST)",
   "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review",
 
-  "2019-10-01", "2020-09-01", "UCS, 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
-  "2019-10-01", "2020-02-01", "UCS, 2D vs 3D", "2D vs 3D C# code",
-  "2020-01-01", "2020-04-01", "UCS, 2D vs 3D", "2D vs 3D Experimental survey",
-  "2020-03-01", "2020-06-01", "UCS, 2D vs 3D", "2D vs 3D paper",
-  "2020-06-01", "2020-09-01", "UCS, 2D vs 3D", "2D vs 3D Submission (CHI)",
+  "2019-10-01", "2020-09-01", "UCS 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
+  "2019-10-01", "2020-02-01", "UCS 2D vs 3D", "2D vs 3D C# code",
+  "2020-01-01", "2020-04-01", "UCS 2D vs 3D", "2D vs 3D Experimental survey",
+  "2020-03-01", "2020-06-01", "UCS 2D vs 3D", "2D vs 3D paper",
+  "2020-06-01", "2020-09-01", "UCS 2D vs 3D", "2D vs 3D Submission (CHI)",
 
   "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives",
   "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison",
@@ -486,7 +492,9 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
   labs(x=NULL, y=NULL) + coord_flip() +
   scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) +
   theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) +
-  scale_color_brewer(palette = "Dark2")
+  scale_color_brewer(palette = "Dark2") +
+  theme(axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 14))
 
 timeline
 ```
@@ -496,22 +504,22 @@ timeline
 # Milestone documents
 
 - FIT 5144 hours
-    - \>120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review.
+    - \>120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
-    - FIT5113: 2018 S2, **Exemption submitted**, forwarded 14/02/2019.
+    - FIT5113: 2018 S2, **Exemption submitted**, forwarded 14/02/2019
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed**
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
-    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
+    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon")
 
 ---
 class: center, middle
 
 # Thanks!
 
-Slides created in R using rmarkdown and xaringan.
+Slides created in R using rmarkdown and xaringan
 
 Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019)
 <br><br><br><br>
@@ -523,8 +531,6 @@ Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyr
 
 *Xie, 2018*
 ]
-
-
 
 ---
 
@@ -542,17 +548,15 @@ McDonald, J. A. (1982). INTERACTIVE GRAPHICS FOR DATA ANALYSIS.
 
 Hurley, C., & Buja, A. (1990). Analyzing High-Dimensional Data with Motion Graphics. SIAM Journal on Scientific and Statistical Computing, 11(6), 1193–1211. https://doi.org/10.1137/0911068
 
-
 Wang, B.-T., Hobbs, T. J., Doyle, S., Gao, J., Hou, T.-J., Nadolsky, P. M., & Olness, F. I. (2018). Visualizing the sensitivity of hadronic experiments to nucleon structure. ArXiv Preprint ArXiv:1803.02777.
-
-Nelson, L., Cook, D., & Cruz-Neira, C. (1998). XGobi vs the C2: Results of an Experiment Comparing Data Visualization in a 3-D Immer- sive Virtual Reality Environment with a 2-D Workstation Display. Computational Statistics, 14(1), 39–52.
-
-Gracia, A., González, S., Robles, V., Menasalvas, E., & von Landesberger, T. (2016). New insights into the suitability of the third dimension for visualizing multivariate/multidimensional data: A study based on loss of quality quantification. Information Visualization, 15(1), 3–30. https://doi.org/10.1177/1473871614556393
-
 
 ---
 
 # References (2/2)
+
+Nelson, L., Cook, D., & Cruz-Neira, C. (1998). XGobi vs the C2: Results of an Experiment Comparing Data Visualization in a 3-D Immer- sive Virtual Reality Environment with a 2-D Workstation Display. Computational Statistics, 14(1), 39–52.
+
+Gracia, A., González, S., Robles, V., Menasalvas, E., & von Landesberger, T. (2016). New insights into the suitability of the third dimension for visualizing multivariate/multidimensional data: A study based on loss of quality quantification. Information Visualization, 15(1), 3–30. https://doi.org/10.1177/1473871614556393
 
 Wagner Filho, J., Rey, M., Freitas, C., & Nedel, L. (2018). Immersive Visualization of Abstract Information: An Evaluation on Dimensionally-Reduced Data Scatterplots.
 
