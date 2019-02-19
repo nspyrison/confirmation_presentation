@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices</title>
+    <title>Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices</title>
     <meta charset="utf-8">
     <meta name="author" content="  Nicholas Spyrison (id:29365759)   Monash University, Faculty of Information Technology" />
     <link href="slides_ns_files/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices
+# Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices
 ### <br> Nicholas Spyrison (id:29365759) <br> Monash University, Faculty of Information Technology <br><br>
 ### Candidature Confirmation <br> 21 February 2019 <br><br> <em>Slides – <a href="https://github.com/nspyrison/talk_confirmation2019">github.com/nspyrison/talk_confirmation2019</a></em>
 
@@ -21,9 +21,12 @@ class: center, middle, inverse, title-slide
 
 # Research question
 
+.large[
 ** Does allowing the user to steer the tour, facilitate the exploration and understanding
 of the sensitivity of structure to the original variables or parameters? **
+]
 
+Research objectives:
 - A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
 - B) What benefits does UCS provide over popular alternatives?
 - C) How do we extend UCS to 3D?
@@ -35,7 +38,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 Linear projection of multivariate numeric data from `\(p\)` to `\(d\)` dimension as `\(p-\)`space is rotated, collectively known at **tours**
 
-- Useful for indentifying clusters, outliers, and structure
+- Useful for identifying clusters, outliers, and structure
 
 Shadow puppet analogy (linear projection from 3- to 2D):
 
@@ -46,7 +49,7 @@ Shadow puppet analogy (linear projection from 3- to 2D):
 # Tour typology
 
 - Manual choice - **manual tour** selecting a variable and manipulation *Cook &amp; Buja 1997*
-    - Particularly useful in in exploring the local structure of an interesting feature
+    - Particularly useful for exploring the local structure of an interesting feature
     - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
 
@@ -135,22 +138,21 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 # RO #A) Application -- Hadronic collision experiments
 
-Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018*
+Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et al. 2018*, guided tours *Cook, et al. 2018*
 
 .pull-left[
 
 &lt;img src="./images/DIS_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
 
-As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/), UCS on each of the 6 PC.
 ]
 
 .pull-right[
 - Summarized in 6 principal components, ~48% of the variation in the data &lt;br&gt;
 - Starting basis from previously published figures &lt;br&gt;&lt;br&gt;
-- When the contribution of PC6 is full, the plane of green points extends into the plane of sight &lt;br&gt;
+- When the contribution of PC6 is full, the plain of green points extends into the line of sight &lt;br&gt;
 - When the contribution is zeroed, the line purple points is approaching a head on view
 ]
-
 
 
 ---
@@ -183,7 +185,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- dymanic linear
+# RO #B) 2D UCS vs alternatives -- dynamic linear
 
 **What benefits does UCS provide over popular alternatives?**
 
@@ -210,7 +212,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 - 2D tours in head tracked VR vs standard monitor
 
-*Nelson et. al. 1998*
+*Nelson et al. 1998*
 
 ---
 
@@ -220,7 +222,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 - 2D and 3D scatterplots of PCA on standard monitor
 
-*Gracia et. al. 2016*
+*Gracia et al. 2016*
 
 ---
 
@@ -230,7 +232,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 - 2D and 3D scatterplots of PCA on standard monitor and head mounted VR
 
-*Wagner et. al. 2018*
+*Wagner et al. 2018*
 
 ---
 
@@ -259,9 +261,9 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 *future empirical study*
 
 **Design space:**
-- Display type: 2D monitor, 3D mointor, head-mount, physical immersion
+- Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality, outliers
-- Measures: accuracy, speed, subjective meaures (Likert scale), demographic information, cross-departmental comparison(?)
+- Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
 
 ---
 
@@ -313,7 +315,7 @@ Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyr
 .left[
 *R Core Team, 2018*
 
-*Xie et. al. 2018*
+*Xie et al. 2018*
 
 *Xie, 2018*
 ]
@@ -322,7 +324,7 @@ Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyr
 
 # References (1/2)
 
-In order of appearance:
+*In order of appearance:*
 
 Cook, D., &amp; Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464–480. https://doi.org/10.2307/1390747
 
@@ -335,6 +337,9 @@ McDonald, J. A. (1982). INTERACTIVE GRAPHICS FOR DATA ANALYSIS.
 Hurley, C., &amp; Buja, A. (1990). Analyzing High-Dimensional Data with Motion Graphics. SIAM Journal on Scientific and Statistical Computing, 11(6), 1193–1211. https://doi.org/10.1137/0911068
 
 Wang, B.-T., Hobbs, T. J., Doyle, S., Gao, J., Hou, T.-J., Nadolsky, P. M., &amp; Olness, F. I. (2018). Visualizing the sensitivity of hadronic experiments to nucleon structure. ArXiv Preprint ArXiv:1803.02777.
+
+Cook, D., Laa, U., &amp; Valencia, G. (2018). Dynamical projections for the visualization of PDFSense data. Eur. Phys. J. C, 78(9), 742.
+
 
 ---
 

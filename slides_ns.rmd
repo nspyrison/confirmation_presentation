@@ -1,5 +1,5 @@
 ---
-title: "Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices"
+title: "Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices"
 author: "<br> Nicholas Spyrison (id:29365759) <br> Monash University, Faculty of Information Technology <br><br>"
 date: "Candidature Confirmation <br> 21 February 2019 <br><br> *Slides -- [github.com/nspyrison/talk_confirmation2019](https://github.com/nspyrison/talk_confirmation2019)*"
 output:
@@ -31,7 +31,6 @@ knitr::opts_chunk$set(
 #htmlwidgets::sizingPolicy(padding = 0, browser.fill = TRUE)
 library(spinifex)
 library(gganimate) 
-  #must load after spinifex b/c tourr::animate?
 library(ggplot2)
 library(magrittr)
 library(Rtsne)
@@ -40,9 +39,12 @@ library(cowplot)
 
 # Research question
 
+.large[
 ** Does allowing the user to steer the tour, facilitate the exploration and understanding
 of the sensitivity of structure to the original variables or parameters? **
+]
 
+Research objectives:
 - A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
 - B) What benefits does UCS provide over popular alternatives?
 - C) How do we extend UCS to 3D?
@@ -54,7 +56,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 Linear projection of multivariate numeric data from $p$ to $d$ dimension as $p-$space is rotated, collectively known at **tours**
 
-- Useful for indentifying clusters, outliers, and structure
+- Useful for identifying clusters, outliers, and structure
 
 Shadow puppet analogy (linear projection from 3- to 2D):
 
@@ -65,7 +67,7 @@ Shadow puppet analogy (linear projection from 3- to 2D):
 # Tour typology
 
 - Manual choice - **manual tour** selecting a variable and manipulation *Cook & Buja 1997*
-    - Particularly useful in in exploring the local structure of an interesting feature
+    - Particularly useful for exploring the local structure of an interesting feature
     - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
 
@@ -97,9 +99,9 @@ Created with R package `tourr` *Wickham et al. 2011*
 
 ---
 
-# RO #A) 2D user controlled steering
+# Basis and manipulation variable
 
-**Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
+**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 - Yes: *manual tour* applying *Cook & Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
@@ -125,11 +127,11 @@ view_basis(f_bas, labels = colnames(f_dat))
 
 ---
 
-# RO #A) 2D user controlled steering
+# Manipulation space
 
-**Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
+**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
-- Yes: *manual tour* applying *Cook & Buja 1997* `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
+- Yes: *manual tour* applying *Cook & Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 ```{r, out.height='80%', out.width='80%'}
@@ -145,10 +147,10 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 
 ---
 
-# RO #A) 2D user controlled steering
+# Rotate manipulation space
 
-**Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook & Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
+**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
+- Yes: *manual tour* applying *Cook & Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
 
 .pull-left[
 <br><br>
@@ -182,9 +184,9 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 ---
 
-# RO #A) Application -- Hadronic collision experiments
+# UCS Application -- Hadronic collision experiments
 
-Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et. al. 2018*
+Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et al. 2018*, guided tours *Cook, et al. 2018*
 
 .pull-left[
 ```{r, results='hide'}
@@ -210,16 +212,15 @@ gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt,
 knitr::include_graphics("./images/DIS_mt.gif")
 ```
 
-As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/), UCS on each of the 6 PC.
 ]
 
 .pull-right[
 - Summarized in 6 principal components, ~48% of the variation in the data <br>
 - Starting basis from previously published figures <br><br>
-- When the contribution of PC6 is full, the plane of green points extends into the plane of sight <br>
+- When the contribution of PC6 is full, the plain of green points extends into the line of sight <br>
 - When the contribution is zeroed, the line purple points is approaching a head on view
 ]
-
 
 
 ---
@@ -305,7 +306,7 @@ ggplot() +
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- dymanic linear
+# RO #B) 2D UCS vs alternatives -- dynamic linear
 
 **What benefits does UCS provide over popular alternatives?**
 
@@ -336,7 +337,7 @@ knitr::include_graphics("./images/nelson98fig.PNG")
 
 - 2D tours in head tracked VR vs standard monitor
 
-*Nelson et. al. 1998*
+*Nelson et al. 1998*
 
 ---
 
@@ -348,7 +349,7 @@ knitr::include_graphics("./images/gracia16fig.PNG")
 
 - 2D and 3D scatterplots of PCA on standard monitor
 
-*Gracia et. al. 2016*
+*Gracia et al. 2016*
 
 ---
 
@@ -360,7 +361,7 @@ knitr::include_graphics("./images/wagner18fig.PNG")
 
 - 2D and 3D scatterplots of PCA on standard monitor and head mounted VR
 
-*Wagner et. al. 2018*
+*Wagner et al. 2018*
 
 ---
 
@@ -393,9 +394,9 @@ knitr::include_graphics("./images/IATK.png")
 *future empirical study*
 
 **Design space:**
-- Display type: 2D monitor, 3D mointor, head-mount, physical immersion
+- Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality, outliers
-- Measures: accuracy, speed, subjective meaures (Likert scale), demographic information, cross-departmental comparison(?)
+- Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
 
 ---
 
@@ -417,7 +418,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ### Research timeline
 
-```{r timeline, echo=F, fig.height=8, fig.width=12}
+```{r timeline, echo=F, fig.height=8, fig.width=14}
 #out.extra='angle=90
 ## working from: https://stats.andrewheiss.com/misc/gantt.html
 library(tidyverse)
@@ -493,8 +494,9 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
   scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) +
   theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) +
   scale_color_brewer(palette = "Dark2") +
-  theme(axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 14))
+  theme(axis.text.x = element_text(size = 16),
+        axis.text.y = element_text(size = 16),
+        legend.text = element_text(size = 16))
 
 timeline
 ```
@@ -527,7 +529,7 @@ Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyr
 .left[
 *R Core Team, 2018*
 
-*Xie et. al. 2018*
+*Xie et al. 2018*
 
 *Xie, 2018*
 ]
@@ -536,7 +538,7 @@ Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyr
 
 # References (1/2)
 
-In order of appearance:
+*In order of appearance:*
 
 Cook, D., & Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464–480. https://doi.org/10.2307/1390747
 
@@ -549,6 +551,9 @@ McDonald, J. A. (1982). INTERACTIVE GRAPHICS FOR DATA ANALYSIS.
 Hurley, C., & Buja, A. (1990). Analyzing High-Dimensional Data with Motion Graphics. SIAM Journal on Scientific and Statistical Computing, 11(6), 1193–1211. https://doi.org/10.1137/0911068
 
 Wang, B.-T., Hobbs, T. J., Doyle, S., Gao, J., Hou, T.-J., Nadolsky, P. M., & Olness, F. I. (2018). Visualizing the sensitivity of hadronic experiments to nucleon structure. ArXiv Preprint ArXiv:1803.02777.
+
+Cook, D., Laa, U., & Valencia, G. (2018). Dynamical projections for the visualization of PDFSense data. Eur. Phys. J. C, 78(9), 742.
+
 
 ---
 
