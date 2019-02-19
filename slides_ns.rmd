@@ -225,9 +225,9 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- PCA & static linear
+# PCA & static linear projections
 
-**What benefits does UCS provide over popular alternatives?**
+**RO #B) What benefits does UCS provide over popular alternatives?**
 
 *Future case study*
 
@@ -281,9 +281,9 @@ plot_grid(gg_f_pca_proj, gg_f_pca_var, align = "h", rel_widths = c(2, 1.6))
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- tSNE & non-linear
+# tSNE & non-linear projections
 
-**What benefits does UCS provide over popular alternatives?**
+**RO #B) What benefits does UCS provide over popular alternatives?**
 
 *Future case study*
 
@@ -306,9 +306,9 @@ ggplot() +
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- dynamic linear
+# 2D UCS vs alternatives -- dynamic linear
 
-**What benefits does UCS provide over popular alternatives?**
+**RO #B) What benefits does UCS provide over popular alternatives?**
 
 *Future case study*
 
@@ -335,7 +335,8 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 knitr::include_graphics("./images/nelson98fig.PNG")
 ```
 
-- 2D tours in head tracked VR vs standard monitor
+- 2D tours: head tracked VR vs standard monitor
+- VR: ++ cluster identification, + structure, tie dimensionality, - bushing speed
 
 *Nelson et al. 1998*
 
@@ -348,6 +349,7 @@ knitr::include_graphics("./images/gracia16fig.PNG")
 ```
 
 - 2D and 3D scatterplots of PCA on standard monitor
+- 3D: + point distances, + identify outliers, slower in both
 
 *Gracia et al. 2016*
 
@@ -360,14 +362,15 @@ knitr::include_graphics("./images/wagner18fig.PNG")
 ```
 
 - 2D and 3D scatterplots of PCA on standard monitor and head mounted VR
+- head-mounted VR: more accuracy, easier to navigate, less comfortable
 
 *Wagner et al. 2018*
 
 ---
 
-# RO #C) Extending UCS to 3D
+# Extending UCS to 3D
 
-**How do we extend UCS to 3D?**
+**RO #C) How do we extend UCS to 3D?**
 
 *future exploratory design*
 
@@ -387,9 +390,9 @@ knitr::include_graphics("./images/IATK.png")
 
 ---
 
-# RO #D) low-dim embeddings across display type
+# Low-dimension embeddings across display type
 
-**Does UCS with 3D displays provide perception benefits over 2D displays?**
+**RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?**
 
 *future empirical study*
 
