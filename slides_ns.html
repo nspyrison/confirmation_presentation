@@ -3,8 +3,9 @@
   <head>
     <title>Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices</title>
     <meta charset="utf-8">
-    <meta name="author" content="  Nicholas Spyrison (id:29365759)   Monash University, Faculty of Information Technology" />
+    <meta name="author" content="  Nicholas Spyrison   Monash University, Faculty of Information Technology" />
     <link href="slides_ns_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="slides_ns_files/kePrint-0.0.1/kePrint.js"></script>
     <link rel="stylesheet" href="data_viz_theme.css" type="text/css" />
   </head>
   <body>
@@ -12,12 +13,61 @@
 class: center, middle, inverse, title-slide
 
 # Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices
-### <br> Nicholas Spyrison (id:29365759) <br> Monash University, Faculty of Information Technology <br><br>
+### <br> Nicholas Spyrison <br> Monash University, Faculty of Information Technology <br><br>
 ### Candidature Confirmation <br> 21 February 2019 <br><br> <em>Slides – <a href="https://github.com/nspyrison/talk_confirmation2019">github.com/nspyrison/talk_confirmation2019</a></em>
 
 ---
 
 
+
+# Motivation
+
+Exploratory data analysis is important and ubiquitous, and it's important to keep visual interpretation: 
+
+![](./images/AllDinosAnimatedSmaller.gif)
+
+Datasaurus dozen, same means, standard deviations, and correlations, *Matejka &amp; Fitzmaurice, 2017*
+
+---
+
+# Vizualizing multivariate spaces
+
+- Vizualization becomes complex; use dimension reduction via linear projection
+- One static projection doesn't capture the full image
+- Rotation of the object reveals it's shape
+
+**Shadow puppet analogy (linear projection from 3- to 2D):**
+
+![Shadow puppet analogy](./images/shadow_puppet.png)
+
+---
+
+# 
+
+---
+
+# Dynamic linear projections, tours
+
+**Already available in R on CRAN,** `tourr` package, *Wickham et al. 2011*
+
+- Random choice - *grand tour* random forest walk in `\(p\)`-space *Asimov 1985*
+- Data driven - *guided tour* projection pursuit, optimize an objective function on the projection *Hurley &amp; Buja 1990*
+
+--
+
+.pull-left[
+grand tour (random):
+&lt;img src="./images/flea_grand.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.pull-right[
+guided tour - opimizing holes index:
+&lt;img src="./images/flea_holes.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+]
+
+---
 
 # Research question
 
@@ -26,7 +76,9 @@ class: center, middle, inverse, title-slide
 of the sensitivity of structure to the original variables or parameters? **
 ]
 
-Research objectives:
+--
+
+**Research objectives:**
 - A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
 - B) What benefits does UCS provide over popular alternatives?
 - C) How do we extend UCS to 3D?
@@ -34,358 +86,456 @@ Research objectives:
 
 ---
 
-# Dynamic low-dimensional embeddings, tours
+# 2D User controlled steering
 
-Linear projection of multivariate numeric data from `\(p\)` to `\(d\)` dimension as `\(p-\)`space is rotated, collectively known at **tours**
+**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
-- Useful for identifying clusters, outliers, and structure
+**Work in the last year:**
 
-Shadow puppet analogy (linear projection from 3- to 2D):
-
-![Shadow puppet analogy](./images/shadow_puppet.png)
-
----
-
-# Tour typology
-
-- Manual choice - **manual tour** selecting a variable and manipulation *Cook &amp; Buja 1997*
-    - Particularly useful for exploring the local structure of an interesting feature
+- Manual choice - *manual tour* selecting a variable and manipulation *Cook &amp; Buja 1997*
     - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
-
-&lt;br&gt;
-Already implemented in R package `tourr` *Wickham et al. 2011*, available on CRAN:
-
-- Random choice - *grand tour* random forest walk in `\(p\)`-space *Asimov 1985*
-- Precomputed choice - *eg.* *little tour* step through increments of all variables in order *McDonald 1982*
-- Data driven - *guided tour* projection pursuit on objective function *Hurley &amp; Buja 1990*
-
+    - Particularly useful for exploring the local structure of an interesting feature
+    - Start with the last projection of the previous guided tour
 
 ---
 
-# Guided tour, flea example
+# Initalize a basis, select a variable
+
+**Work in the last year:**
+
+- Start with the last projection of the previous guided tour:
+
+
 
 .pull-left[
-&lt;br&gt;
-- Linear combination of the variables displayed on a unit circle, a *reference frame* &lt;br&gt;&lt;br&gt;
-- This is a *guided tour*, uses projection pursuit to maximize white space in the middle of a projection
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-&lt;img src="./images/FleaHolesTour.gif" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; x &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; y &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5924 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0381 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0502 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3810 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1247 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4434 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0225 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5049 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7936 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0736 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0284 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6296 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 ]
 
-Created with R package `tourr` *Wickham et al. 2011*
+- Choose a manipulation variable: `aede2`
 
 ---
 
-# Basis and manipulation variable
-
-**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook &amp; Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
+# Create a manipulation space
 
 .pull-left[
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
 &lt;br&gt;&lt;br&gt;
-- Start from the last basis of the previous *guided tour* &lt;br&gt;&lt;br&gt;
-- Select a variable to manipulate: `aede2`
-]
-
-.pull-right[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-2-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-# Manipulation space
-
-**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-
-- Yes: *manual tour* applying *Cook &amp; Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
-
-.pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-3-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
-]
-
-.pull-right[
-&lt;br&gt;&lt;br&gt;
-- Lay the reference frame on a table&lt;br&gt;&lt;br&gt;
-- Initialize a manipulation space, a means to control the contributions of the selected manipulation variable
+- Lay the reference frame on a table
+- Initialize a manipulation space
+- Changing the angle bewteen the red variable and the blue plain controls the x-y coefficients of the selected variable (constrained rotation on the others)
 ]
 
 ---
 
 # Rotate manipulation space
 
-**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-- Yes: *manual tour* applying *Cook &amp; Buja 1997*, `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
-
-.pull-left[
-&lt;br&gt;&lt;br&gt;
 **Algorithm,** *over a sequence of angles:*
 
 - Project manipulation space
 - Rotate the manipulation space
-]
 
-.pull-right[ 
 
-&lt;img src="./images/f_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+[1] "FIX FUNC HERE"
+[1] "FIX FUNC HERE" "FIX FUNC HERE" "FIX FUNC HERE" "FIX FUNC HERE"
+[5] "FIX FUNC HERE"
+
+
+---
+
+# Manual tour
+
+
+&lt;img src="./images/f_mt.gif" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
 
 As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
-]
-
----
-
-# UCS Application -- Hadronic collision experiments
-
-Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et al. 2018*, guided tours *Cook, et al. 2018*
-
-.pull-left[
-
-&lt;img src="./images/DIS_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
-
-As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/), UCS on each of the 6 PC.
-]
-
-.pull-right[
-- Summarized in 6 principal components, ~48% of the variation in the data &lt;br&gt;
-- Starting basis from previously published figures &lt;br&gt;&lt;br&gt;
-- When the contribution of PC6 is full, the plain of green points extends into the line of sight &lt;br&gt;
-- When the contribution is zeroed, the line purple points is approaching a head on view
-]
 
 
 ---
 
-# PCA &amp; static linear projections
-
-**RO #B) What benefits does UCS provide over popular alternatives?**
-
-*Future case study*
-
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
-
-- Best we can do in `\(d\)`-dim static projection
-- Variable transparency; map to variable space
-- How much variation is lost?
-
----
-
-# tSNE &amp; non-linear projections
-
-**RO #B) What benefits does UCS provide over popular alternatives?**
-
-*Future case study*
-
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
-
-- Variables opacity; how different? in which direction? What's the relationship?
-- Can suffer from overfitting
-- Binary indicator of clustering/outliers
-
----
-
-# 2D UCS vs alternatives -- dynamic linear
-
-**RO #B) What benefits does UCS provide over popular alternatives?**
-
-*Future case study*
-
-
-.pull-left[
-&lt;img src="./images/f_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
-
-As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
-]
-
-.pull-right[
-&lt;br&gt;
-- Variable transparency; map to variable space
-- Subsets of variation viewed as projection changes
-]
-
----
-
-# 2D vs 3D low-dimensional embeddings
-
-&lt;img src="./images/nelson98fig.PNG" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
-
-- 2D tours: head tracked VR vs standard monitor
-- VR: ++ cluster identification, + structure, tie dimensionality, - bushing speed
-
-*Nelson et al. 1998*
-
----
-
-# 2D vs 3D low-dimensional embeddings
-
-&lt;img src="./images/gracia16fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
-
-- 2D and 3D scatterplots of PCA on standard monitor
-- 3D: + point distances, + identify outliers, slower in both
-
-*Gracia et al. 2016*
-
----
-
-# 2D vs 3D low-dimensional embeddings
-
-&lt;img src="./images/wagner18fig.PNG" width="30%" height="30%" style="display: block; margin: auto;" /&gt;
-
-- 2D and 3D scatterplots of PCA on standard monitor and head mounted VR
-- head-mounted VR: more accuracy, easier to navigate, less comfortable
-
-*Wagner et al. 2018*
-
----
-
-# Extending UCS to 3D
-
-**RO #C) How do we extend UCS to 3D?**
-
-*future exploratory design*
-
-`spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019*
-
-.pull-left[
-&lt;img src="./images/DIS_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
-]
-
-.pull-right[
-&lt;img src="./images/IATK.png" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-# Low-dimension embeddings across display type
-
-**RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?**
-
-*future empirical study*
-
-**Design space:**
-- Display type: 2D monitor, 3D monitor, head-mount, physical immersion
-- Task type: structure, UCS, clustering, dimensionality, outliers
-- Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
-
----
-
-# Research question - Recap
-
-** Does allowing the user to steer the tour, facilitate the exploration and understanding
-of the sensitivity of structure to the original variables or parameters? **
-
-- A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
-    - `spinifex` in R
-- B) What benefits does UCS provide over popular alternatives?
-    - case study: static linear vs static non-linear vs dynamic linear
-- C) How do we extend UCS to 3D?
-    - experimental design: `spinifex` and `IATK`
-- D) Does UCS with 3D displays provide perception benefits over 2D displays?
-    - empirical study: dynamic linear embedding across display type
-
----
-
-### Research timeline
-
-&lt;img src="slides_ns_files/figure-html/timeline-1.png" style="display: block; margin: auto;" /&gt;
-
----
-
-# Milestone documents
-
-- FIT 5144 hours
-    - \&gt;120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review
-- WES Academic record
-    - FIT6021: 2018 S2, **Completed** with Distinction
-    - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
-    - FIT5113: 2018 S2, **Exemption submitted**, forwarded 14/02/2019
-- myDevelopment - IT: Monash Doctoral Program - Compulsory Module
-    - Monash Graduate Research Student Induction: **Completed**
-    - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
-    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon")
-
----
-class: center, middle
-
-# Thanks!
-
-Slides created in R using rmarkdown and xaringan
-
-Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019)
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-.left[
-*R Core Team, 2018*
-
-*Xie et al. 2018*
-
-*Xie, 2018*
-]
-
----
-
-# References (1/2)
-
-*In order of appearance:*
-
-Cook, D., &amp; Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464–480. https://doi.org/10.2307/1390747
-
-Wickham, H., Cook, D., Hofmann, H., &amp; Buja, A. (2011). tourr : An R Package for Exploring Multivariate Data with Projections. Journal of Statistical Software, 40(2). https://doi.org/10.18637/jss.v040.i02
-
-Asimov, D. (1985). The grand tour: a tool for viewing multidimensional data. SIAM Journal on Scientific and Statistical Computing, 6(1), 128–143.
-
-McDonald, J. A. (1982). INTERACTIVE GRAPHICS FOR DATA ANALYSIS.
-
-Hurley, C., &amp; Buja, A. (1990). Analyzing High-Dimensional Data with Motion Graphics. SIAM Journal on Scientific and Statistical Computing, 11(6), 1193–1211. https://doi.org/10.1137/0911068
-
-Wang, B.-T., Hobbs, T. J., Doyle, S., Gao, J., Hou, T.-J., Nadolsky, P. M., &amp; Olness, F. I. (2018). Visualizing the sensitivity of hadronic experiments to nucleon structure. ArXiv Preprint ArXiv:1803.02777.
-
-Cook, D., Laa, U., &amp; Valencia, G. (2018). Dynamical projections for the visualization of PDFSense data. Eur. Phys. J. C, 78(9), 742.
-
-
----
-
-# References (2/2)
-
-Nelson, L., Cook, D., &amp; Cruz-Neira, C. (1998). XGobi vs the C2: Results of an Experiment Comparing Data Visualization in a 3-D Immer- sive Virtual Reality Environment with a 2-D Workstation Display. Computational Statistics, 14(1), 39–52.
-
-Gracia, A., González, S., Robles, V., Menasalvas, E., &amp; von Landesberger, T. (2016). New insights into the suitability of the third dimension for visualizing multivariate/multidimensional data: A study based on loss of quality quantification. Information Visualization, 15(1), 3–30. https://doi.org/10.1177/1473871614556393
-
-Wagner Filho, J., Rey, M., Freitas, C., &amp; Nedel, L. (2018). Immersive Visualization of Abstract Information: An Evaluation on Dimensionally-Reduced Data Scatterplots.
-
-Cordeil, M. (2019). Immersive Analytics Toolkit (Version IATK 1.0 (Mala) Unity 2017). Retrieved from https://github.com/MaximeCordeil/IATK (Original work published 2017)
-
-R Core Team. (2018). R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from https://www.R-project.org/
-
-Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). R Markdown: The Definitive Guide. Boca Raton, Florida: Chapman and Hall/CRC. Retrieved from https://bookdown.org/yihui/rmarkdown
-
-Xie, Y. (2018). xaringan: Presentation Ninja. Retrieved from https://CRAN.R-project.org/package=xaringan
+&lt;!-- # UCS Application -- Hadronic collision experiments --&gt;
+
+&lt;!-- Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et al. 2018*, guided tours *Cook, et al. 2018* --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+&lt;!-- ```{r, results='hide'} --&gt;
+&lt;!-- ##DIS cluster, fig 8 of cook_dynamical_2018 --&gt;
+&lt;!-- load("./data/grDIScenter.rda") --&gt;
+&lt;!-- load("./data/DIScluster_centered_basis.rda") --&gt;
+&lt;!-- DIS_bas  &lt;- DIScluster_centered_basis --&gt;
+&lt;!-- DIS_dat  &lt;- tourr::rescale(grDIScenter[, 1:6]) --&gt;
+&lt;!-- DIS_cat  &lt;- factor(grDIScenter$disID) --&gt;
+&lt;!-- DIS_mvar &lt;- 6 --&gt;
+&lt;!-- DIS_ang  &lt;- .15 --&gt;
+
+&lt;!-- ### GGANIMATE --&gt;
+
+&lt;!-- DIS_mt &lt;- play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar, --&gt;
+&lt;!--                            angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat, --&gt;
+&lt;!--                            render_type = render_gganimate) --&gt;
+
+&lt;!-- gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt, --&gt;
+&lt;!--                      start_pause = 15, width = 600, height = 600, res = 300) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
+&lt;!-- knitr::include_graphics("./images/DIS_mt.gif") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/), UCS on each of the 6 PC. --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+&lt;!-- - Summarized in 6 principal components, ~48% of the variation in the data &lt;br&gt; --&gt;
+&lt;!-- - Starting basis from previously published figures &lt;br&gt;&lt;br&gt; --&gt;
+&lt;!-- - When the contribution of PC6 is full, the plain of green points extends into the line of sight &lt;br&gt; --&gt;
+&lt;!-- - When the contribution is zeroed, the line purple points is approaching a head on view --&gt;
+&lt;!-- ] --&gt;
 
 
 &lt;!-- --- --&gt;
 
-&lt;!-- # Appendix (1/2) --&gt;
+&lt;!-- # PCA &amp; static linear projections --&gt;
 
-&lt;!-- `tourr::animate_groupxy()` --&gt;
+&lt;!-- **RO #B) What benefits does UCS provide over popular alternatives?** --&gt;
 
-&lt;!-- ```{r, results="hold", out.width = "50%"} --&gt;
-&lt;!-- knitr::include_graphics("./images/FleaHolesTour_groupxy.gif") --&gt;
+&lt;!-- *Future case study* --&gt;
+
+&lt;!-- ```{r, fig.width=10.4, fig.height=4} --&gt;
+&lt;!-- f_pca &lt;- stats::prcomp(f_dat, center = TRUE, scale. = TRUE) --&gt;
+&lt;!-- f_pca_bas &lt;- as.matrix(f_pca$rotation[, 1:2]) --&gt;
+&lt;!-- colnames(f_pca_bas) &lt;- c("V1", "V2") --&gt;
+&lt;!-- f_pca_proj &lt;- tourr::rescale(f_pca$x) %&gt;% as.data.frame() --&gt;
+
+&lt;!-- ### Basis and proj --&gt;
+&lt;!-- gg_f_pca_proj &lt;- --&gt;
+&lt;!--   view_basis(f_pca_bas, labels = colnames(f_dat)) + --&gt;
+&lt;!--   geom_point(data = f_pca_proj, --&gt;
+&lt;!--              mapping = aes(x = PC1 +.75, y = PC2 -.5, color = f_cat), --&gt;
+&lt;!--              pch = as.integer(f_cat) + 15) + --&gt;
+&lt;!--   ggtitle("flea - PC1:2") + xlab("PC1") + ylab("PC2") --&gt;
+
+&lt;!-- ### Cumsum variation --&gt;
+&lt;!-- f_pca_var &lt;- as.data.frame( --&gt;
+&lt;!--   rbind(c(0,0,0,0), --&gt;
+&lt;!--     cbind("PC" = 1:6, --&gt;
+&lt;!--       "Var" = f_pca$sdev, --&gt;
+&lt;!--       "Prop_Var" = f_pca$sdev/sum(f_pca$sdev), --&gt;
+&lt;!--       "cumsum_Prop_Var" = cumsum(f_pca$sdev)/sum(f_pca$sdev), --&gt;
+&lt;!--       "var_not_explained" = 1 -  cumsum(f_pca$sdev)/sum(f_pca$sdev) --&gt;
+&lt;!--     ) --&gt;
+&lt;!--   ) --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!--   ribbon &lt;- f_pca_var[-1:-2, c(1,4)] --&gt;
+&lt;!--   ribbon &lt;- ribbon[rep(row.names(ribbon), 2), ] --&gt;
+&lt;!--   ribbon[6:10, 1] &lt;- ribbon[6:10, 1]+.999 --&gt;
+
+&lt;!-- gg_f_pca_var &lt;- --&gt;
+&lt;!--   ggplot(f_pca_var, aes(x=PC,y=cumsum_Prop_Var,label=round(cumsum_Prop_Var, 2))) + --&gt;
+&lt;!--   geom_point(size=1) + geom_step() + --&gt;
+&lt;!--   ggtitle("Cumulative variance by PC") + --&gt;
+&lt;!--   geom_text(nudge_x=0, nudge_y=.05) + --&gt;
+&lt;!--   labs(x="Principal component", y="Cumulative variance") + --&gt;
+&lt;!--   theme_bw() + --&gt;
+&lt;!--   coord_fixed(ratio = .5) + --&gt;
+&lt;!--   geom_ribbon(data=ribbon, aes(x=PC, ymin=cumsum_Prop_Var, ymax=1), --&gt;
+&lt;!--               fill="red", alpha=.2) + theme(legend.position = 'none') --&gt;
+
+&lt;!-- plot_grid(gg_f_pca_proj, gg_f_pca_var, align = "h", rel_widths = c(2, 1.6)) --&gt;
 &lt;!-- ``` --&gt;
 
-&lt;!-- available on github: `devtools::install_github("nspyrion/tourr")` --&gt;
+&lt;!-- - Best we can do in `\(d\)`-dim static projection --&gt;
+&lt;!-- - Variable transparency; map to variable space --&gt;
+&lt;!-- - How much variation is lost? --&gt;
 
 &lt;!-- --- --&gt;
 
-&lt;!-- # Appendix (2/2) --&gt;
+&lt;!-- # tSNE &amp; non-linear projections --&gt;
 
-&lt;!-- `tourr::animate_density2d()` --&gt;
+&lt;!-- **RO #B) What benefits does UCS provide over popular alternatives?** --&gt;
 
-&lt;!-- ```{r, results="hold", out.width = "50%"} --&gt;
-&lt;!-- knitr::include_graphics("./images/FleaHolesTour_density2d.gif") --&gt;
+&lt;!-- *Future case study* --&gt;
+
+&lt;!-- ```{r, results='hide', fig.width=6.1, fig.height=3.8} --&gt;
+&lt;!-- f_tsne &lt;- Rtsne(f_dat, dims = 2, perplexity=15, verbose=TRUE, max_iter = 500) --&gt;
+&lt;!-- colnames(f_tsne$Y) &lt;- paste0("tS",1:2) --&gt;
+&lt;!-- f_tsne_proj &lt;- tourr::rescale(f_tsne$Y) %&gt;% as.data.frame() --&gt;
+
+&lt;!-- ggplot() + --&gt;
+&lt;!--   geom_point(data = f_tsne_proj, --&gt;
+&lt;!--              mapping = aes(x = tS1, y = tS2, color = f_cat), --&gt;
+&lt;!--              pch = as.integer(f_cat) + 15) + --&gt;
+&lt;!--   theme_void()+ theme(legend.position = 'none') + --&gt;
+&lt;!--   ggtitle("flea - tSNE Components 1,2") --&gt;
 &lt;!-- ``` --&gt;
 
-&lt;!-- available on github: `devtools::install_github("nspyrion/tourr")` --&gt;
+&lt;!-- - Variables opacity; how different? in which direction? What's the relationship? --&gt;
+&lt;!-- - Can suffer from overfitting --&gt;
+&lt;!-- - Binary indicator of clustering/outliers --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # 2D UCS vs alternatives -- dynamic linear --&gt;
+
+&lt;!-- **RO #B) What benefits does UCS provide over popular alternatives?** --&gt;
+
+&lt;!-- *Future case study* --&gt;
+
+
+&lt;!-- .pull-left[ --&gt;
+&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
+&lt;!-- knitr::include_graphics("./images/f_mt.gif") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/) --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+&lt;!-- &lt;br&gt; --&gt;
+&lt;!-- - Variable transparency; map to variable space --&gt;
+&lt;!-- - Subsets of variation viewed as projection changes --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # 2D vs 3D low-dimensional embeddings --&gt;
+
+&lt;!-- ```{r, out.width='50%', out.height='50%'} --&gt;
+&lt;!-- knitr::include_graphics("./images/nelson98fig.PNG") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- - 2D tours: head tracked VR vs standard monitor --&gt;
+&lt;!-- - VR: ++ cluster identification, + structure, tie dimensionality, - bushing speed --&gt;
+
+&lt;!-- *Nelson et al. 1998* --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # 2D vs 3D low-dimensional embeddings --&gt;
+
+&lt;!-- ```{r, out.width='100%', out.height='100%'} --&gt;
+&lt;!-- knitr::include_graphics("./images/gracia16fig.PNG") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- - 2D and 3D scatterplots of PCA on standard monitor --&gt;
+&lt;!-- - 3D: + point distances, + identify outliers, slower in both --&gt;
+
+&lt;!-- *Gracia et al. 2016* --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # 2D vs 3D low-dimensional embeddings --&gt;
+
+&lt;!-- ```{r, out.width='30%', out.height='30%'} --&gt;
+&lt;!-- knitr::include_graphics("./images/wagner18fig.PNG") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- - 2D and 3D scatterplots of PCA on standard monitor and head mounted VR --&gt;
+&lt;!-- - head-mounted VR: more accuracy, easier to navigate, less comfortable --&gt;
+
+&lt;!-- *Wagner et al. 2018* --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Extending UCS to 3D --&gt;
+
+&lt;!-- **RO #C) How do we extend UCS to 3D?** --&gt;
+
+&lt;!-- *future exploratory design* --&gt;
+
+&lt;!-- `spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
+&lt;!-- knitr::include_graphics("./images/DIS_mt.gif") --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
+&lt;!-- knitr::include_graphics("./images/IATK.png") --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Low-dimension embeddings across display type --&gt;
+
+&lt;!-- **RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?** --&gt;
+
+&lt;!-- *future empirical study* --&gt;
+
+&lt;!-- **Design space:** --&gt;
+&lt;!-- - Display type: 2D monitor, 3D monitor, head-mount, physical immersion --&gt;
+&lt;!-- - Task type: structure, UCS, clustering, dimensionality, outliers --&gt;
+&lt;!-- - Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?) --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Research question - Recap --&gt;
+
+&lt;!-- ** Does allowing the user to steer the tour, facilitate the exploration and understanding --&gt;
+&lt;!-- of the sensitivity of structure to the original variables or parameters? ** --&gt;
+
+&lt;!-- - A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation? --&gt;
+&lt;!--     - `spinifex` in R --&gt;
+&lt;!-- - B) What benefits does UCS provide over popular alternatives? --&gt;
+&lt;!--     - case study: static linear vs static non-linear vs dynamic linear --&gt;
+&lt;!-- - C) How do we extend UCS to 3D? --&gt;
+&lt;!--     - experimental design: `spinifex` and `IATK` --&gt;
+&lt;!-- - D) Does UCS with 3D displays provide perception benefits over 2D displays? --&gt;
+&lt;!--     - empirical study: dynamic linear embedding across display type --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ### Research timeline --&gt;
+
+&lt;!-- ```{r timeline, echo=F, fig.height=8, fig.width=14} --&gt;
+&lt;!-- #out.extra='angle=90 --&gt;
+&lt;!-- ## working from: https://stats.andrewheiss.com/misc/gantt.html --&gt;
+&lt;!-- library(tidyverse) --&gt;
+&lt;!-- library(lubridate) --&gt;
+&lt;!-- library(scales) --&gt;
+
+&lt;!-- tasks &lt;- tribble( --&gt;
+&lt;!--   ~Start,       ~End,         ~Project,     ~Task, --&gt;
+&lt;!--   "2018-04-01", "2019-06-01", "A) 2D UCS",  "A) 2D UCS", --&gt;
+&lt;!--   "2018-04-01", "2019-02-01", "A) 2D UCS",  "A) code", --&gt;
+&lt;!--   "2018-12-01", "2019-06-01", "A) 2D UCS",  "A) paper", --&gt;
+&lt;!--   "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation", --&gt;
+
+&lt;!--   "2019-03-01", "2019-12-01", "C) 3D UCS",  "RO: C) Tours, UCS in 3D", --&gt;
+&lt;!--   "2019-03-01", "2019-08-01", "C) 3D UCS",  "UCS to IATK, C# code", --&gt;
+&lt;!--   "2019-06-01", "2019-09-01", "C) 3D UCS",  "UCS in 3D paper", --&gt;
+&lt;!--   "2019-09-01", "2019-12-01", "C) 3D UCS",  "UCS in 3D Submission (VAST)", --&gt;
+&lt;!--   "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review", --&gt;
+
+&lt;!--   "2019-10-01", "2020-09-01", "UCS 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D", --&gt;
+&lt;!--   "2019-10-01", "2020-02-01", "UCS 2D vs 3D", "2D vs 3D C# code", --&gt;
+&lt;!--   "2020-01-01", "2020-04-01", "UCS 2D vs 3D", "2D vs 3D Experimental survey", --&gt;
+&lt;!--   "2020-03-01", "2020-06-01", "UCS 2D vs 3D", "2D vs 3D paper", --&gt;
+&lt;!--   "2020-06-01", "2020-09-01", "UCS 2D vs 3D", "2D vs 3D Submission (CHI)", --&gt;
+
+&lt;!--   "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives", --&gt;
+&lt;!--   "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison", --&gt;
+&lt;!--   "2020-06-01", "2020-09-01", "UCS Benefits", "UCS Benefits paper", --&gt;
+&lt;!--   "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission (VAST)", --&gt;
+
+&lt;!--   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation", --&gt;
+&lt;!--   "2021-01-01", "2021-04-01", "Milestones", "thesis completion and submission" --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- # Convert data to long for ggplot --&gt;
+&lt;!-- tasks.long &lt;- tasks %&gt;% --&gt;
+&lt;!--   mutate(Start = ymd(Start), --&gt;
+&lt;!--          End = ymd(End)) %&gt;% --&gt;
+&lt;!--   gather(date.type, task.date, -c(Project, Task)) %&gt;% --&gt;
+&lt;!--   #arrange(date.type, task.date) %&gt;% --&gt;
+&lt;!--   mutate(Task = factor(Task, levels=rev(unique(Task)), ordered=T)) --&gt;
+&lt;!-- # Custom theme for making a clean Gantt chart --&gt;
+&lt;!-- theme_gantt &lt;- function(base_size=11) { --&gt;
+&lt;!--   ret &lt;- theme_bw(base_size) %+replace% --&gt;
+&lt;!--     theme(panel.background = element_rect(fill="#ffffff", colour=NA), --&gt;
+&lt;!--           axis.title.x=element_text(vjust=-0.2), axis.title.y=element_text(vjust=1.5), --&gt;
+&lt;!--           title=element_text(vjust=1.2), --&gt;
+&lt;!--           panel.border = element_blank(), axis.line=element_blank(), --&gt;
+&lt;!--           panel.grid.minor=element_blank(), --&gt;
+&lt;!--           panel.grid.major.y = element_blank(), --&gt;
+&lt;!--           panel.grid.major.x = element_line(size=0.5, colour="grey80"), --&gt;
+&lt;!--           axis.ticks=element_blank(), --&gt;
+&lt;!--           legend.position="bottom", --&gt;
+&lt;!--           axis.title=element_text(size=rel(0.8)), --&gt;
+&lt;!--           strip.text=element_text(size=rel(1)), --&gt;
+&lt;!--           strip.background=element_rect(fill="#ffffff", colour=NA), --&gt;
+&lt;!--           panel.spacing.y=unit(1.5, "lines"), --&gt;
+&lt;!--           legend.key = element_blank()) --&gt;
+
+&lt;!--   ret --&gt;
+&lt;!-- } --&gt;
+
+&lt;!-- # Calculate where to put the dotted lines that show up every three entries --&gt;
+&lt;!-- x.breaks &lt;- seq(length(tasks$Task) + 0.5 - 3, 0, by=-3) --&gt;
+
+&lt;!-- # Build plot --&gt;
+&lt;!-- timeline &lt;- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) + --&gt;
+&lt;!--   geom_line(size=6) + --&gt;
+&lt;!--   geom_vline(xintercept=x.breaks, colour="grey80", linetype="dotted") + --&gt;
+&lt;!--   guides(colour=guide_legend(title=NULL)) + --&gt;
+&lt;!--   labs(x=NULL, y=NULL) + coord_flip() + --&gt;
+&lt;!--   scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) + --&gt;
+&lt;!--   theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) + --&gt;
+&lt;!--   scale_color_brewer(palette = "Dark2") + --&gt;
+&lt;!--   theme(axis.text.x = element_text(size = 16), --&gt;
+&lt;!--         axis.text.y = element_text(size = 16), --&gt;
+&lt;!--         legend.text = element_text(size = 16)) --&gt;
+
+&lt;!-- timeline --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- class: center, middle --&gt;
+
+&lt;!-- # Thanks! --&gt;
+
+&lt;!-- Slides created in R using rmarkdown and xaringan --&gt;
+
+&lt;!-- Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019) --&gt;
+&lt;!-- &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; --&gt;
+
+&lt;!-- .left[ --&gt;
+&lt;!-- *R Core Team, 2018* --&gt;
+
+&lt;!-- *Xie et al. 2018* --&gt;
+
+&lt;!-- *Xie, 2018* --&gt;
+&lt;!-- ] --&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
