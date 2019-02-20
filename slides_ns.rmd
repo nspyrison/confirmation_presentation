@@ -275,16 +275,15 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 
 *over a sequence of angles:* Rotate and project through manipulation space
 
-```{r, fig.hight=2, out.width='60%', out.height='60%'}
+```{r, fig.hight=2, out.width='40%', out.height='40%'}
 f_ang <- .35
 f_mt <- manual_tour(basis = f_bas,manip_var = f_mvar,angle = f_ang)
 
-# array2static_sub(.m_tour = f_mt, .data = f_dat, 
-#                  .m_var = f_mvar, .cat = f_cat)
-### white space export is odd, doing a 
+array2static_sub(.m_tour = f_mt, .data = f_dat,
+                 .m_var = f_mvar, .cat = f_cat)
 
-knitr::include_graphics("./images/rotate_manip_sp.PNG")
-
+### white space export is odd, alternatively can use screenshot.
+#knitr::include_graphics("./images/rotate_manip_sp.PNG")
 ```
 
 
