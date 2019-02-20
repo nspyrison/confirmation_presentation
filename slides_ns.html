@@ -30,9 +30,9 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka &a
 
 ---
 
-# Vizualizing multivariate spaces
+# Visualizing multivariate spaces
 
-- Vizualization becomes complex; use dimension reduction via linear projection
+- Visualization becomes complex; use dimension reduction via linear projection
 - One static projection doesn't capture the full image
 - Rotation of the object reveals it's shape
 
@@ -59,7 +59,7 @@ grand tour (random):
 --
 
 .pull-right[
-guided tour - opimizing holes index:
+guided tour - optimizing holes index:
 &lt;img src="./images/flea_holes.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -139,33 +139,33 @@ of the sensitivity of structure to the original variables or parameters? **
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6221 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1478 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5543 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0144 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0615 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4464 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1559 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6308 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1888 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3952 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0127 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0303 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4769 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0896 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4459 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7550 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0755 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6326 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0520 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6241 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5945 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0525 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -185,7 +185,7 @@ of the sensitivity of structure to the original variables or parameters? **
 &lt;br&gt;&lt;br&gt;
 - Lay the reference frame on a table
 - Initialize a manipulation space
-- Changing the angle bewteen the red line and the blue line controls the x-y coefficients of the selected variable (constrained rotation on the others)
+- Changing the angle between the red line and the blue line controls the x-y coefficients of the selected variable (constrained rotation on the others)
 - Lock the angle on the blue plain; radial rotation
 ]
 
@@ -194,7 +194,7 @@ of the sensitivity of structure to the original variables or parameters? **
 # Rotate manipulation space
 
 
-*over a sequence of angles:* Rotate and project through manip space
+*over a sequence of angles:* Rotate and project through manipulation space
 
 &lt;img src="./images/rotate_manip_sp.PNG" width="60%" height="60%" style="display: block; margin: auto;" /&gt;
 
@@ -243,13 +243,12 @@ Results:
 
 **Future case study:**
 
-- Pricipal component analysis (PCA) 
+- Principal component analysis (PCA) 
     - Static linear transformation that produces linear combinations of the variables in descending order of variation explained
-- T-distributed stochastic neighbor embedding (tSNE) 
-    - Static non-linear transformation, preserves local structure
-- User controlled steering (USC)
+- T-distributed stochastic neighbor embedding (tSNE)
+    - Static non-linear transformation, preserves local clustering
+- User controlled steering (USC), manual tour
     - Dynamic linear projections
-
 
 ---
 
