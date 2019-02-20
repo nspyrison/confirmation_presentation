@@ -67,13 +67,20 @@ guided tour - opimizing holes index:
 
 # 2D vs 3D low-dimensional embeddings
 
+.pull-left[
+&lt;img src="./images/nelson98fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
-Most related papers report improved accraccy, prescision, and ease of identifying information, with decreased speed and comfort
+- 2D tours: head tracked VR vs standard monitor
+*Nelson et al. 1998*
+]
 
-- 2D and 3D scatterplots of PCA on standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA on standard monitor and head mounted VR, *Wagner et al. 2018*
+.pull-right[
+Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
+
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
 - 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
-
+]
 
 ---
 
@@ -94,7 +101,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# 2D User controlled steering
+# A) 2D User controlled steering
 
 **RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
@@ -108,7 +115,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# Initalize a basis, select a variable
+# Supply a basis, select a variable
 
 **Work in the last year:**
 
@@ -117,7 +124,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-5-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -132,33 +139,33 @@ of the sensitivity of structure to the original variables or parameters? **
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6701 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0887 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6221 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1478 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0120 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4185 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0615 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4464 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1450 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3768 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1888 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3952 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0934 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5137 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0303 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4769 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7217 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0745 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7550 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0755 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0094 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6368 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0520 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6241 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -171,27 +178,25 @@ of the sensitivity of structure to the original variables or parameters? **
 # Create a manipulation space
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
 &lt;br&gt;&lt;br&gt;
 - Lay the reference frame on a table
 - Initialize a manipulation space
-- Changing the angle bewteen the red variable and the blue plain controls the x-y coefficients of the selected variable (constrained rotation on the others)
+- Changing the angle bewteen the red line and the blue line controls the x-y coefficients of the selected variable (constrained rotation on the others)
+- Lock the angle on the blue plain; radial rotation
 ]
 
 ---
 
 # Rotate manipulation space
 
-**Algorithm,** *over a sequence of angles:*
 
-- Project manipulation space
-- Rotate the manipulation space
+*over a sequence of angles:* Rotate and project through manip space
 
-
-
+&lt;img src="./images/rotate_manip_sp.PNG" width="60%" height="60%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -220,11 +225,11 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 ]
 
 .pull-right[
-init:
-- Summarized in 6 principal components, ~48% of the variation in the data 
+Given:
+- Data summarized in 6 principal components, ~48% of the variation
 - Starting basis from previously published figures
 
-results:
+Results:
 - When the contribution of PC6 is full, the plain of green points extends into the line of sight
 - When the contribution is zeroed, the line is purple points is approaching a head on view
 ]
@@ -232,7 +237,7 @@ results:
 
 ---
 
-# PCA &amp; static linear projections
+# B) UCS vs alternatives
 
 **RO #B) What benefits does UCS provide over popular alternatives?**
 
@@ -248,163 +253,58 @@ results:
 
 ---
 
-# 2D vs 3D low-dimensional embeddings
+# C) Extending UCS to 3D
 
-&lt;
-&lt;!-- --- --&gt;
+**RO #C) How do we extend UCS to 3D?**
 
-&lt;!-- # Extending UCS to 3D --&gt;
+*future exploratory design*
 
-&lt;!-- **RO #C) How do we extend UCS to 3D?** --&gt;
+`spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019*
 
-&lt;!-- *future exploratory design* --&gt;
+.pull-left[
+&lt;img src="./images/DIS_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+]
 
-&lt;!-- `spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* --&gt;
+.pull-right[
+&lt;img src="./images/IATK.png" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+]
 
-&lt;!-- .pull-left[ --&gt;
-&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
-&lt;!-- knitr::include_graphics("./images/DIS_mt.gif") --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ] --&gt;
+---
 
-&lt;!-- .pull-right[ --&gt;
-&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
-&lt;!-- knitr::include_graphics("./images/IATK.png") --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ] --&gt;
+# D) Low-dimension embeddings across display type
 
-&lt;!-- --- --&gt;
+**RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?**
 
-&lt;!-- # Low-dimension embeddings across display type --&gt;
+*future empirical study*
 
-&lt;!-- **RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?** --&gt;
+**Design space:**
+- Display type: 2D monitor, 3D monitor, head-mount, physical immersion
+- Task type: structure, UCS, clustering, dimensionality, outliers
+- Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
 
-&lt;!-- *future empirical study* --&gt;
+---
 
-&lt;!-- **Design space:** --&gt;
-&lt;!-- - Display type: 2D monitor, 3D monitor, head-mount, physical immersion --&gt;
-&lt;!-- - Task type: structure, UCS, clustering, dimensionality, outliers --&gt;
-&lt;!-- - Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?) --&gt;
+### Research timeline
 
-&lt;!-- --- --&gt;
+&lt;img src="slides_ns_files/figure-html/timeline-1.png" style="display: block; margin: auto;" /&gt;
 
-&lt;!-- # Research question - Recap --&gt;
+---
+class: center, middle
 
-&lt;!-- ** Does allowing the user to steer the tour, facilitate the exploration and understanding --&gt;
-&lt;!-- of the sensitivity of structure to the original variables or parameters? ** --&gt;
+# Thanks!
 
-&lt;!-- - A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation? --&gt;
-&lt;!--     - `spinifex` in R --&gt;
-&lt;!-- - B) What benefits does UCS provide over popular alternatives? --&gt;
-&lt;!--     - case study: static linear vs static non-linear vs dynamic linear --&gt;
-&lt;!-- - C) How do we extend UCS to 3D? --&gt;
-&lt;!--     - experimental design: `spinifex` and `IATK` --&gt;
-&lt;!-- - D) Does UCS with 3D displays provide perception benefits over 2D displays? --&gt;
-&lt;!--     - empirical study: dynamic linear embedding across display type --&gt;
+Slides created in R using rmarkdown and xaringan
 
-&lt;!-- --- --&gt;
+Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019)
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-&lt;!-- ### Research timeline --&gt;
+.left[
+*R Core Team, 2018*
 
-&lt;!-- ```{r timeline, echo=F, fig.height=8, fig.width=14} --&gt;
-&lt;!-- #out.extra='angle=90 --&gt;
-&lt;!-- ## working from: https://stats.andrewheiss.com/misc/gantt.html --&gt;
-&lt;!-- library(tidyverse) --&gt;
-&lt;!-- library(lubridate) --&gt;
-&lt;!-- library(scales) --&gt;
+*Xie et al. 2018*
 
-&lt;!-- tasks &lt;- tribble( --&gt;
-&lt;!--   ~Start,       ~End,         ~Project,     ~Task, --&gt;
-&lt;!--   "2018-04-01", "2019-06-01", "A) 2D UCS",  "A) 2D UCS", --&gt;
-&lt;!--   "2018-04-01", "2019-02-01", "A) 2D UCS",  "A) code", --&gt;
-&lt;!--   "2018-12-01", "2019-06-01", "A) 2D UCS",  "A) paper", --&gt;
-&lt;!--   "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation", --&gt;
-
-&lt;!--   "2019-03-01", "2019-12-01", "C) 3D UCS",  "RO: C) Tours, UCS in 3D", --&gt;
-&lt;!--   "2019-03-01", "2019-08-01", "C) 3D UCS",  "UCS to IATK, C# code", --&gt;
-&lt;!--   "2019-06-01", "2019-09-01", "C) 3D UCS",  "UCS in 3D paper", --&gt;
-&lt;!--   "2019-09-01", "2019-12-01", "C) 3D UCS",  "UCS in 3D Submission (VAST)", --&gt;
-&lt;!--   "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review", --&gt;
-
-&lt;!--   "2019-10-01", "2020-09-01", "UCS 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D", --&gt;
-&lt;!--   "2019-10-01", "2020-02-01", "UCS 2D vs 3D", "2D vs 3D C# code", --&gt;
-&lt;!--   "2020-01-01", "2020-04-01", "UCS 2D vs 3D", "2D vs 3D Experimental survey", --&gt;
-&lt;!--   "2020-03-01", "2020-06-01", "UCS 2D vs 3D", "2D vs 3D paper", --&gt;
-&lt;!--   "2020-06-01", "2020-09-01", "UCS 2D vs 3D", "2D vs 3D Submission (CHI)", --&gt;
-
-&lt;!--   "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives", --&gt;
-&lt;!--   "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison", --&gt;
-&lt;!--   "2020-06-01", "2020-09-01", "UCS Benefits", "UCS Benefits paper", --&gt;
-&lt;!--   "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission (VAST)", --&gt;
-
-&lt;!--   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation", --&gt;
-&lt;!--   "2021-01-01", "2021-04-01", "Milestones", "thesis completion and submission" --&gt;
-&lt;!-- ) --&gt;
-
-&lt;!-- # Convert data to long for ggplot --&gt;
-&lt;!-- tasks.long &lt;- tasks %&gt;% --&gt;
-&lt;!--   mutate(Start = ymd(Start), --&gt;
-&lt;!--          End = ymd(End)) %&gt;% --&gt;
-&lt;!--   gather(date.type, task.date, -c(Project, Task)) %&gt;% --&gt;
-&lt;!--   #arrange(date.type, task.date) %&gt;% --&gt;
-&lt;!--   mutate(Task = factor(Task, levels=rev(unique(Task)), ordered=T)) --&gt;
-&lt;!-- # Custom theme for making a clean Gantt chart --&gt;
-&lt;!-- theme_gantt &lt;- function(base_size=11) { --&gt;
-&lt;!--   ret &lt;- theme_bw(base_size) %+replace% --&gt;
-&lt;!--     theme(panel.background = element_rect(fill="#ffffff", colour=NA), --&gt;
-&lt;!--           axis.title.x=element_text(vjust=-0.2), axis.title.y=element_text(vjust=1.5), --&gt;
-&lt;!--           title=element_text(vjust=1.2), --&gt;
-&lt;!--           panel.border = element_blank(), axis.line=element_blank(), --&gt;
-&lt;!--           panel.grid.minor=element_blank(), --&gt;
-&lt;!--           panel.grid.major.y = element_blank(), --&gt;
-&lt;!--           panel.grid.major.x = element_line(size=0.5, colour="grey80"), --&gt;
-&lt;!--           axis.ticks=element_blank(), --&gt;
-&lt;!--           legend.position="bottom", --&gt;
-&lt;!--           axis.title=element_text(size=rel(0.8)), --&gt;
-&lt;!--           strip.text=element_text(size=rel(1)), --&gt;
-&lt;!--           strip.background=element_rect(fill="#ffffff", colour=NA), --&gt;
-&lt;!--           panel.spacing.y=unit(1.5, "lines"), --&gt;
-&lt;!--           legend.key = element_blank()) --&gt;
-
-&lt;!--   ret --&gt;
-&lt;!-- } --&gt;
-
-&lt;!-- # Calculate where to put the dotted lines that show up every three entries --&gt;
-&lt;!-- x.breaks &lt;- seq(length(tasks$Task) + 0.5 - 3, 0, by=-3) --&gt;
-
-&lt;!-- # Build plot --&gt;
-&lt;!-- timeline &lt;- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) + --&gt;
-&lt;!--   geom_line(size=6) + --&gt;
-&lt;!--   geom_vline(xintercept=x.breaks, colour="grey80", linetype="dotted") + --&gt;
-&lt;!--   guides(colour=guide_legend(title=NULL)) + --&gt;
-&lt;!--   labs(x=NULL, y=NULL) + coord_flip() + --&gt;
-&lt;!--   scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) + --&gt;
-&lt;!--   theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) + --&gt;
-&lt;!--   scale_color_brewer(palette = "Dark2") + --&gt;
-&lt;!--   theme(axis.text.x = element_text(size = 16), --&gt;
-&lt;!--         axis.text.y = element_text(size = 16), --&gt;
-&lt;!--         legend.text = element_text(size = 16)) --&gt;
-
-&lt;!-- timeline --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-&lt;!-- class: center, middle --&gt;
-
-&lt;!-- # Thanks! --&gt;
-
-&lt;!-- Slides created in R using rmarkdown and xaringan --&gt;
-
-&lt;!-- Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019) --&gt;
-&lt;!-- &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; --&gt;
-
-&lt;!-- .left[ --&gt;
-&lt;!-- *R Core Team, 2018* --&gt;
-
-&lt;!-- *Xie et al. 2018* --&gt;
-
-&lt;!-- *Xie, 2018* --&gt;
-&lt;!-- ] --&gt;
+*Xie, 2018*
+]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

@@ -56,7 +56,7 @@ array2static_sub <- function(.m_tour, .data, .m_var, .cat, .mag =2.2, .sub=3)
   siz_v[.m_var] <- 1
   siz_v         <- rep(siz_v, n_slides)
   cat           <- rep(as.factor(.cat), n_slides)
-
+  
   ## circle
   angle <- seq(0, 2 * pi, length = 180)
   circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
@@ -105,7 +105,7 @@ array2static_sub <- function(.m_tour, .data, .m_var, .cat, .mag =2.2, .sub=3)
                             label = paste0("frame: ",slide))) +
     theme_void() +
     scale_color_brewer(palette = "Dark2") + 
-    # + coord_fixed()
+    coord_fixed() +
     theme(legend.position="none")
   
   gg2
@@ -122,9 +122,9 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka & 
 
 ---
 
-# Vizualizing multivariate spaces
+# Visualizing multivariate spaces
 
-- Vizualization becomes complex; use dimension reduction via linear projection
+- Visualization becomes complex; use dimension reduction via linear projection
 - One static projection doesn't capture the full image
 - Rotation of the object reveals it's shape
 
@@ -153,7 +153,7 @@ knitr::include_graphics("./images/flea_grand.gif")
 --
 
 .pull-right[
-guided tour - opimizing holes index:
+guided tour - optimizing holes index:
 ```{r, echo=F, out.height= '70%', out.width='70%'}
 knitr::include_graphics("./images/flea_holes.gif")
 ```
@@ -164,16 +164,21 @@ knitr::include_graphics("./images/flea_holes.gif")
 # 2D vs 3D low-dimensional embeddings
 
 .pull-left[
-```{r, out.width='70%', out.height='70%'}
+```{r, out.width='100%', out.height='100%'}
 knitr::include_graphics("./images/nelson98fig.PNG")
 ```
 
-Most related papers report improved accraccy, prescision, and ease of identifying information, with decreased speed and comfort
+- 2D tours: head tracked VR vs standard monitor
+*Nelson et al. 1998*
+]
 
-- 2D and 3D scatterplots of PCA on standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA on standard monitor and head mounted VR, *Wagner et al. 2018*
+.pull-right[
+Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
+
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
 - 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
-
+]
 
 ---
 
@@ -194,7 +199,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# 2D User controlled steering
+# A) 2D User controlled steering
 
 **RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
@@ -208,13 +213,13 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# Initalize a basis, select a variable
+# Supply a basis, select a variable
 
 **Work in the last year:**
 
 - Start with the last projection of the previous guided tour:
 
-```{r, results='hide', fig.height=4.5, fig.width=9}
+```{r, results='hide'}
 f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
@@ -224,10 +229,10 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas))
 ```
 
 .pull-left[
-```{r, fig.height=6, fig.width=12}
+```{r, fig.height=6, fig.width=12, out.height='130%', out.width='130%'}
 view_basis(f_bas, labels = colnames(f_dat)) +
   geom_point(data = f_proj, 
-             mapping = aes(x = X1 - 1.75, y = X2 - .5, color = f_cat), 
+             mapping = aes(x = X1 - 2, y = X2 - .5, color = f_cat), 
              pch = as.integer(f_cat) + 15)
 ```
 ]
@@ -259,34 +264,26 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 <br><br>
 - Lay the reference frame on a table
 - Initialize a manipulation space
-- Changing the angle bewteen the red variable and the blue plain controls the x-y coefficients of the selected variable (constrained rotation on the others)
+- Changing the angle between the red line and the blue line controls the x-y coefficients of the selected variable (constrained rotation on the others)
+- Lock the angle on the blue plain; radial rotation
 ]
 
 ---
 
 # Rotate manipulation space
 
-**Algorithm,** *over a sequence of angles:*
 
-- Project manipulation space
-- Rotate the manipulation space
+*over a sequence of angles:* Rotate and project through manipulation space
 
+```{r, fig.hight=2, out.width='60%', out.height='60%'}
+f_ang <- .35
+f_mt <- manual_tour(basis = f_bas,manip_var = f_mvar,angle = f_ang)
 
-```{r, fig.hight=2, fig.width=6, out.height='50%'}
-# f_angle <- .4
-# f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
+# array2static_sub(.m_tour = f_mt, .data = f_dat, 
+#                  .m_var = f_mvar, .cat = f_cat)
+### white space export is odd, doing a 
 
-f_msp <- create_manip_space(basis = f_bas, manip_var = f_mvar)
-theta     <- atan(f_bas[f_mvar, 2] / f_bas[f_mvar, 1])
-phi_start <- acos(sqrt(f_bas[f_mvar, 1]^2 + f_bas[f_mvar, 2]^2))
-
-bas1 <-  rotate_manip_space(manip_space = f_msp, theta = theta,
-                                    phi = phi_start)
-bas2 <-  rotate_manip_space(manip_space = f_msp, theta = theta,
-                                    phi = 2/3*phi_start)
-bas3 <-  rotate_manip_space(manip_space = f_msp, theta = theta,
-                                    phi = 1/3*phi_start)
-
+knitr::include_graphics("./images/rotate_manip_sp.PNG")
 
 ```
 
@@ -351,11 +348,11 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 ]
 
 .pull-right[
-init:
-- Summarized in 6 principal components, ~48% of the variation in the data 
+Given:
+- Data summarized in 6 principal components, ~48% of the variation
 - Starting basis from previously published figures
 
-results:
+Results:
 - When the contribution of PC6 is full, the plain of green points extends into the line of sight
 - When the contribution is zeroed, the line is purple points is approaching a head on view
 ]
@@ -363,176 +360,152 @@ results:
 
 ---
 
-# PCA & static linear projections
+# B) UCS vs alternatives
 
 **RO #B) What benefits does UCS provide over popular alternatives?**
 
 **Future case study:**
 
-- Pricipal component analysis (PCA) 
+- Principal component analysis (PCA) 
     - Static linear transformation that produces linear combinations of the variables in descending order of variation explained
-- T-distributed stochastic neighbor embedding (tSNE) 
-    - Static non-linear transformation, preserves local structure
-- User controlled steering (USC)
+- T-distributed stochastic neighbor embedding (tSNE)
+    - Static non-linear transformation, preserves local clustering
+- User controlled steering (USC), manual tour
     - Dynamic linear projections
-
 
 ---
 
-# 2D vs 3D low-dimensional embeddings
+# C) Extending UCS to 3D
 
-<
-<!-- --- -->
+**RO #C) How do we extend UCS to 3D?**
 
-<!-- # Extending UCS to 3D -->
+*future exploratory design*
 
-<!-- **RO #C) How do we extend UCS to 3D?** -->
+`spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019*
 
-<!-- *future exploratory design* -->
+.pull-left[
+```{r, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/DIS_mt.gif")
+```
+]
 
-<!-- `spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* -->
+.pull-right[
+```{r, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/IATK.png")
+```
+]
 
-<!-- .pull-left[ -->
-<!-- ```{r, out.width='70%', out.height='70%'} -->
-<!-- knitr::include_graphics("./images/DIS_mt.gif") -->
-<!-- ``` -->
-<!-- ] -->
+---
 
-<!-- .pull-right[ -->
-<!-- ```{r, out.width='70%', out.height='70%'} -->
-<!-- knitr::include_graphics("./images/IATK.png") -->
-<!-- ``` -->
-<!-- ] -->
+# D) Low-dimension embeddings across display type
 
-<!-- --- -->
+**RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?**
 
-<!-- # Low-dimension embeddings across display type -->
+*future empirical study*
 
-<!-- **RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?** -->
+**Design space:**
+- Display type: 2D monitor, 3D monitor, head-mount, physical immersion
+- Task type: structure, UCS, clustering, dimensionality, outliers
+- Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
 
-<!-- *future empirical study* -->
+---
 
-<!-- **Design space:** -->
-<!-- - Display type: 2D monitor, 3D monitor, head-mount, physical immersion -->
-<!-- - Task type: structure, UCS, clustering, dimensionality, outliers -->
-<!-- - Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?) -->
+### Research timeline
 
-<!-- --- -->
+```{r timeline, echo=F, fig.height=8, fig.width=14}
+#out.extra='angle=90
+## working from: https://stats.andrewheiss.com/misc/gantt.html
+library(tidyverse)
+library(lubridate)
+library(scales)
 
-<!-- # Research question - Recap -->
+tasks <- tribble(
+  ~Start,       ~End,         ~Project,     ~Task,
+  "2018-04-01", "2019-06-01", "A) 2D UCS",  "A) 2D UCS",
+  "2018-04-01", "2019-02-01", "A) 2D UCS",  "A) code",
+  "2018-12-01", "2019-06-01", "A) 2D UCS",  "A) paper (The R journal)",
+  "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation",
 
-<!-- ** Does allowing the user to steer the tour, facilitate the exploration and understanding -->
-<!-- of the sensitivity of structure to the original variables or parameters? ** -->
+  "2019-03-01", "2019-12-01", "C) 3D UCS",  "C) 3D UCS",
+  "2019-03-01", "2019-08-01", "C) 3D UCS",  "C) code",
+  "2019-06-01", "2019-12-01", "C) 3D UCS",  "C) paper (VAST)",
+  "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review",
 
-<!-- - A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation? -->
-<!--     - `spinifex` in R -->
-<!-- - B) What benefits does UCS provide over popular alternatives? -->
-<!--     - case study: static linear vs static non-linear vs dynamic linear -->
-<!-- - C) How do we extend UCS to 3D? -->
-<!--     - experimental design: `spinifex` and `IATK` -->
-<!-- - D) Does UCS with 3D displays provide perception benefits over 2D displays? -->
-<!--     - empirical study: dynamic linear embedding across display type -->
+  "2019-10-01", "2020-09-01", "D) UCS 2D vs 3D", "D) UCS across display type",
+  "2019-10-01", "2020-02-01", "D) UCS 2D vs 3D", "D) code",
+  "2020-01-01", "2020-04-01", "D) UCS 2D vs 3D", "D) experimental survey",
+  "2020-03-01", "2020-09-01", "D) UCS 2D vs 3D", "D) paper (CHI)",
 
-<!-- --- -->
+  "2020-04-01", "2020-12-01", "B) UCS vs alts", "B) UCS vs alternatives",
+  "2020-04-01", "2020-08-01", "B) UCS vs alts", "B) code",
+  "2020-06-01", "2020-09-01", "B) UCS vs alts", "B) paper (VAST?)",
 
-<!-- ### Research timeline -->
+  
+  "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
+  "2020-09-01", "2021-04-01", "Milestones", "thesis composition"
+)
 
-<!-- ```{r timeline, echo=F, fig.height=8, fig.width=14} -->
-<!-- #out.extra='angle=90 -->
-<!-- ## working from: https://stats.andrewheiss.com/misc/gantt.html -->
-<!-- library(tidyverse) -->
-<!-- library(lubridate) -->
-<!-- library(scales) -->
+# Convert data to long for ggplot
+tasks.long <- tasks %>%
+  mutate(Start = ymd(Start),
+         End = ymd(End)) %>%
+  gather(date.type, task.date, -c(Project, Task)) %>%
+  #arrange(date.type, task.date) %>%
+  mutate(Task = factor(Task, levels=rev(unique(Task)), ordered=T))
+# Custom theme for making a clean Gantt chart
+theme_gantt <- function(base_size=11) {
+  ret <- theme_bw(base_size) %+replace%
+    theme(panel.background = element_rect(fill="#ffffff", colour=NA),
+          axis.title.x=element_text(vjust=-0.2), axis.title.y=element_text(vjust=1.5),
+          title=element_text(vjust=1.2),
+          panel.border = element_blank(), axis.line=element_blank(),
+          panel.grid.minor=element_blank(),
+          panel.grid.major.y = element_blank(),
+          panel.grid.major.x = element_line(size=0.5, colour="grey80"),
+          axis.ticks=element_blank(),
+          legend.position="bottom",
+          axis.title=element_text(size=rel(0.8)),
+          strip.text=element_text(size=rel(1)),
+          strip.background=element_rect(fill="#ffffff", colour=NA),
+          panel.spacing.y=unit(1.5, "lines"),
+          legend.key = element_blank())
 
-<!-- tasks <- tribble( -->
-<!--   ~Start,       ~End,         ~Project,     ~Task, -->
-<!--   "2018-04-01", "2019-06-01", "A) 2D UCS",  "A) 2D UCS", -->
-<!--   "2018-04-01", "2019-02-01", "A) 2D UCS",  "A) code", -->
-<!--   "2018-12-01", "2019-06-01", "A) 2D UCS",  "A) paper", -->
-<!--   "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation", -->
+  ret
+}
 
-<!--   "2019-03-01", "2019-12-01", "C) 3D UCS",  "RO: C) Tours, UCS in 3D", -->
-<!--   "2019-03-01", "2019-08-01", "C) 3D UCS",  "UCS to IATK, C# code", -->
-<!--   "2019-06-01", "2019-09-01", "C) 3D UCS",  "UCS in 3D paper", -->
-<!--   "2019-09-01", "2019-12-01", "C) 3D UCS",  "UCS in 3D Submission (VAST)", -->
-<!--   "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review", -->
+# Calculate where to put the dotted lines that show up every three entries
+x.breaks <- seq(length(tasks$Task) + 0.5 - 3, 0, by=-3)
 
-<!--   "2019-10-01", "2020-09-01", "UCS 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D", -->
-<!--   "2019-10-01", "2020-02-01", "UCS 2D vs 3D", "2D vs 3D C# code", -->
-<!--   "2020-01-01", "2020-04-01", "UCS 2D vs 3D", "2D vs 3D Experimental survey", -->
-<!--   "2020-03-01", "2020-06-01", "UCS 2D vs 3D", "2D vs 3D paper", -->
-<!--   "2020-06-01", "2020-09-01", "UCS 2D vs 3D", "2D vs 3D Submission (CHI)", -->
+# Build plot
+timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
+  geom_line(size=6) +
+  geom_vline(xintercept=x.breaks, colour="grey80", linetype="dotted") +
+  guides(colour=guide_legend(title=NULL)) +
+  labs(x=NULL, y=NULL) + coord_flip() +
+  scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) +
+  theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) +
+  scale_color_brewer(palette = "Dark2") +
+  theme(axis.text.x = element_text(size = 16),
+        axis.text.y = element_text(size = 16),
+        legend.text = element_text(size = 16))
 
-<!--   "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives", -->
-<!--   "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison", -->
-<!--   "2020-06-01", "2020-09-01", "UCS Benefits", "UCS Benefits paper", -->
-<!--   "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission (VAST)", -->
+timeline
+```
 
-<!--   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation", -->
-<!--   "2021-01-01", "2021-04-01", "Milestones", "thesis completion and submission" -->
-<!-- ) -->
+---
+class: center, middle
 
-<!-- # Convert data to long for ggplot -->
-<!-- tasks.long <- tasks %>% -->
-<!--   mutate(Start = ymd(Start), -->
-<!--          End = ymd(End)) %>% -->
-<!--   gather(date.type, task.date, -c(Project, Task)) %>% -->
-<!--   #arrange(date.type, task.date) %>% -->
-<!--   mutate(Task = factor(Task, levels=rev(unique(Task)), ordered=T)) -->
-<!-- # Custom theme for making a clean Gantt chart -->
-<!-- theme_gantt <- function(base_size=11) { -->
-<!--   ret <- theme_bw(base_size) %+replace% -->
-<!--     theme(panel.background = element_rect(fill="#ffffff", colour=NA), -->
-<!--           axis.title.x=element_text(vjust=-0.2), axis.title.y=element_text(vjust=1.5), -->
-<!--           title=element_text(vjust=1.2), -->
-<!--           panel.border = element_blank(), axis.line=element_blank(), -->
-<!--           panel.grid.minor=element_blank(), -->
-<!--           panel.grid.major.y = element_blank(), -->
-<!--           panel.grid.major.x = element_line(size=0.5, colour="grey80"), -->
-<!--           axis.ticks=element_blank(), -->
-<!--           legend.position="bottom", -->
-<!--           axis.title=element_text(size=rel(0.8)), -->
-<!--           strip.text=element_text(size=rel(1)), -->
-<!--           strip.background=element_rect(fill="#ffffff", colour=NA), -->
-<!--           panel.spacing.y=unit(1.5, "lines"), -->
-<!--           legend.key = element_blank()) -->
+# Thanks!
 
-<!--   ret -->
-<!-- } -->
+Slides created in R using rmarkdown and xaringan
 
-<!-- # Calculate where to put the dotted lines that show up every three entries -->
-<!-- x.breaks <- seq(length(tasks$Task) + 0.5 - 3, 0, by=-3) -->
+Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019)
+<br><br><br><br>
 
-<!-- # Build plot -->
-<!-- timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) + -->
-<!--   geom_line(size=6) + -->
-<!--   geom_vline(xintercept=x.breaks, colour="grey80", linetype="dotted") + -->
-<!--   guides(colour=guide_legend(title=NULL)) + -->
-<!--   labs(x=NULL, y=NULL) + coord_flip() + -->
-<!--   scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) + -->
-<!--   theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) + -->
-<!--   scale_color_brewer(palette = "Dark2") + -->
-<!--   theme(axis.text.x = element_text(size = 16), -->
-<!--         axis.text.y = element_text(size = 16), -->
-<!--         legend.text = element_text(size = 16)) -->
+.left[
+*R Core Team, 2018*
 
-<!-- timeline -->
-<!-- ``` -->
+*Xie et al. 2018*
 
-<!-- --- -->
-<!-- class: center, middle -->
-
-<!-- # Thanks! -->
-
-<!-- Slides created in R using rmarkdown and xaringan -->
-
-<!-- Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019) -->
-<!-- <br><br><br><br> -->
-
-<!-- .left[ -->
-<!-- *R Core Team, 2018* -->
-
-<!-- *Xie et al. 2018* -->
-
-<!-- *Xie, 2018* -->
-<!-- ] -->
+*Xie, 2018*
+]
