@@ -26,7 +26,7 @@ Exploratory data analysis is important and ubiquitous, and it's important to kee
 
 ![](./images/AllDinosAnimatedSmaller.gif)
 
-Datasaurus dozen, same means, standard deviations, and correlations, *Matejka &amp; Fitzmaurice, 2017*
+Datasaurus dozen; same means, standard deviations, and correlations, *Matejka &amp; Fitzmaurice, 2017*
 
 ---
 
@@ -39,10 +39,6 @@ Datasaurus dozen, same means, standard deviations, and correlations, *Matejka &a
 **Shadow puppet analogy (linear projection from 3- to 2D):**
 
 ![Shadow puppet analogy](./images/shadow_puppet.png)
-
----
-
-# 
 
 ---
 
@@ -69,10 +65,22 @@ guided tour - opimizing holes index:
 
 ---
 
+# 2D vs 3D low-dimensional embeddings
+
+
+Most related papers report improved accraccy, prescision, and ease of identifying information, with decreased speed and comfort
+
+- 2D and 3D scatterplots of PCA on standard monitor, *Gracia et al. 2016*
+- 2D and 3D scatterplots of PCA on standard monitor and head mounted VR, *Wagner et al. 2018*
+- 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
+
+
+---
+
 # Research question
 
 .large[
-** Does allowing the user to steer the tour, facilitate the exploration and understanding
+** Does allowing the user to steer the tour, facilitate exploration and understanding
 of the sensitivity of structure to the original variables or parameters? **
 ]
 
@@ -124,33 +132,33 @@ of the sensitivity of structure to the original variables or parameters? **
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5924 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0381 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6701 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0887 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0502 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3810 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0120 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4185 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1247 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4434 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1450 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3768 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0225 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5049 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0934 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5137 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7936 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0736 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7217 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0745 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0284 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6296 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0094 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6368 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -183,14 +191,14 @@ of the sensitivity of structure to the original variables or parameters? **
 - Rotate the manipulation space
 
 
-[1] "FIX FUNC HERE"
-[1] "FIX FUNC HERE" "FIX FUNC HERE" "FIX FUNC HERE" "FIX FUNC HERE"
-[5] "FIX FUNC HERE"
+
 
 
 ---
 
-# Manual tour
+# Manual tour allows for UCS
+
+- `aede2` is important for distinguishing between the green and purple clusters.
 
 
 &lt;img src="./images/f_mt.gif" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
@@ -200,188 +208,49 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 ---
 
-&lt;!-- # UCS Application -- Hadronic collision experiments --&gt;
+# UCS Application -- Hadronic collision experiments
 
-&lt;!-- Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et al. 2018*, guided tours *Cook, et al. 2018* --&gt;
+Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et al. 2018*, guided tours *Cook, et al. 2018*
 
-&lt;!-- .pull-left[ --&gt;
-&lt;!-- ```{r, results='hide'} --&gt;
-&lt;!-- ##DIS cluster, fig 8 of cook_dynamical_2018 --&gt;
-&lt;!-- load("./data/grDIScenter.rda") --&gt;
-&lt;!-- load("./data/DIScluster_centered_basis.rda") --&gt;
-&lt;!-- DIS_bas  &lt;- DIScluster_centered_basis --&gt;
-&lt;!-- DIS_dat  &lt;- tourr::rescale(grDIScenter[, 1:6]) --&gt;
-&lt;!-- DIS_cat  &lt;- factor(grDIScenter$disID) --&gt;
-&lt;!-- DIS_mvar &lt;- 6 --&gt;
-&lt;!-- DIS_ang  &lt;- .15 --&gt;
+.pull-left[
 
-&lt;!-- ### GGANIMATE --&gt;
+&lt;img src="./images/DIS_mt.gif" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 
-&lt;!-- DIS_mt &lt;- play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar, --&gt;
-&lt;!--                            angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat, --&gt;
-&lt;!--                            render_type = render_gganimate) --&gt;
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/), UCS on each of the 6 components
+]
 
-&lt;!-- gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt, --&gt;
-&lt;!--                      start_pause = 15, width = 600, height = 600, res = 300) --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
-&lt;!-- knitr::include_graphics("./images/DIS_mt.gif") --&gt;
-&lt;!-- ``` --&gt;
+.pull-right[
+init:
+- Summarized in 6 principal components, ~48% of the variation in the data 
+- Starting basis from previously published figures
 
-&lt;!-- As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/), UCS on each of the 6 PC. --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- .pull-right[ --&gt;
-&lt;!-- - Summarized in 6 principal components, ~48% of the variation in the data &lt;br&gt; --&gt;
-&lt;!-- - Starting basis from previously published figures &lt;br&gt;&lt;br&gt; --&gt;
-&lt;!-- - When the contribution of PC6 is full, the plain of green points extends into the line of sight &lt;br&gt; --&gt;
-&lt;!-- - When the contribution is zeroed, the line purple points is approaching a head on view --&gt;
-&lt;!-- ] --&gt;
+results:
+- When the contribution of PC6 is full, the plain of green points extends into the line of sight
+- When the contribution is zeroed, the line is purple points is approaching a head on view
+]
 
 
-&lt;!-- --- --&gt;
+---
 
-&lt;!-- # PCA &amp; static linear projections --&gt;
+# PCA &amp; static linear projections
 
-&lt;!-- **RO #B) What benefits does UCS provide over popular alternatives?** --&gt;
+**RO #B) What benefits does UCS provide over popular alternatives?**
 
-&lt;!-- *Future case study* --&gt;
+**Future case study:**
 
-&lt;!-- ```{r, fig.width=10.4, fig.height=4} --&gt;
-&lt;!-- f_pca &lt;- stats::prcomp(f_dat, center = TRUE, scale. = TRUE) --&gt;
-&lt;!-- f_pca_bas &lt;- as.matrix(f_pca$rotation[, 1:2]) --&gt;
-&lt;!-- colnames(f_pca_bas) &lt;- c("V1", "V2") --&gt;
-&lt;!-- f_pca_proj &lt;- tourr::rescale(f_pca$x) %&gt;% as.data.frame() --&gt;
-
-&lt;!-- ### Basis and proj --&gt;
-&lt;!-- gg_f_pca_proj &lt;- --&gt;
-&lt;!--   view_basis(f_pca_bas, labels = colnames(f_dat)) + --&gt;
-&lt;!--   geom_point(data = f_pca_proj, --&gt;
-&lt;!--              mapping = aes(x = PC1 +.75, y = PC2 -.5, color = f_cat), --&gt;
-&lt;!--              pch = as.integer(f_cat) + 15) + --&gt;
-&lt;!--   ggtitle("flea - PC1:2") + xlab("PC1") + ylab("PC2") --&gt;
-
-&lt;!-- ### Cumsum variation --&gt;
-&lt;!-- f_pca_var &lt;- as.data.frame( --&gt;
-&lt;!--   rbind(c(0,0,0,0), --&gt;
-&lt;!--     cbind("PC" = 1:6, --&gt;
-&lt;!--       "Var" = f_pca$sdev, --&gt;
-&lt;!--       "Prop_Var" = f_pca$sdev/sum(f_pca$sdev), --&gt;
-&lt;!--       "cumsum_Prop_Var" = cumsum(f_pca$sdev)/sum(f_pca$sdev), --&gt;
-&lt;!--       "var_not_explained" = 1 -  cumsum(f_pca$sdev)/sum(f_pca$sdev) --&gt;
-&lt;!--     ) --&gt;
-&lt;!--   ) --&gt;
-&lt;!-- ) --&gt;
-
-&lt;!--   ribbon &lt;- f_pca_var[-1:-2, c(1,4)] --&gt;
-&lt;!--   ribbon &lt;- ribbon[rep(row.names(ribbon), 2), ] --&gt;
-&lt;!--   ribbon[6:10, 1] &lt;- ribbon[6:10, 1]+.999 --&gt;
-
-&lt;!-- gg_f_pca_var &lt;- --&gt;
-&lt;!--   ggplot(f_pca_var, aes(x=PC,y=cumsum_Prop_Var,label=round(cumsum_Prop_Var, 2))) + --&gt;
-&lt;!--   geom_point(size=1) + geom_step() + --&gt;
-&lt;!--   ggtitle("Cumulative variance by PC") + --&gt;
-&lt;!--   geom_text(nudge_x=0, nudge_y=.05) + --&gt;
-&lt;!--   labs(x="Principal component", y="Cumulative variance") + --&gt;
-&lt;!--   theme_bw() + --&gt;
-&lt;!--   coord_fixed(ratio = .5) + --&gt;
-&lt;!--   geom_ribbon(data=ribbon, aes(x=PC, ymin=cumsum_Prop_Var, ymax=1), --&gt;
-&lt;!--               fill="red", alpha=.2) + theme(legend.position = 'none') --&gt;
-
-&lt;!-- plot_grid(gg_f_pca_proj, gg_f_pca_var, align = "h", rel_widths = c(2, 1.6)) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- - Best we can do in `\(d\)`-dim static projection --&gt;
-&lt;!-- - Variable transparency; map to variable space --&gt;
-&lt;!-- - How much variation is lost? --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # tSNE &amp; non-linear projections --&gt;
-
-&lt;!-- **RO #B) What benefits does UCS provide over popular alternatives?** --&gt;
-
-&lt;!-- *Future case study* --&gt;
-
-&lt;!-- ```{r, results='hide', fig.width=6.1, fig.height=3.8} --&gt;
-&lt;!-- f_tsne &lt;- Rtsne(f_dat, dims = 2, perplexity=15, verbose=TRUE, max_iter = 500) --&gt;
-&lt;!-- colnames(f_tsne$Y) &lt;- paste0("tS",1:2) --&gt;
-&lt;!-- f_tsne_proj &lt;- tourr::rescale(f_tsne$Y) %&gt;% as.data.frame() --&gt;
-
-&lt;!-- ggplot() + --&gt;
-&lt;!--   geom_point(data = f_tsne_proj, --&gt;
-&lt;!--              mapping = aes(x = tS1, y = tS2, color = f_cat), --&gt;
-&lt;!--              pch = as.integer(f_cat) + 15) + --&gt;
-&lt;!--   theme_void()+ theme(legend.position = 'none') + --&gt;
-&lt;!--   ggtitle("flea - tSNE Components 1,2") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- - Variables opacity; how different? in which direction? What's the relationship? --&gt;
-&lt;!-- - Can suffer from overfitting --&gt;
-&lt;!-- - Binary indicator of clustering/outliers --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # 2D UCS vs alternatives -- dynamic linear --&gt;
-
-&lt;!-- **RO #B) What benefits does UCS provide over popular alternatives?** --&gt;
-
-&lt;!-- *Future case study* --&gt;
+- Pricipal component analysis (PCA) 
+    - Static linear transformation that produces linear combinations of the variables in descending order of variation explained
+- T-distributed stochastic neighbor embedding (tSNE) 
+    - Static non-linear transformation, preserves local structure
+- User controlled steering (USC)
+    - Dynamic linear projections
 
 
-&lt;!-- .pull-left[ --&gt;
-&lt;!-- ```{r, out.width='70%', out.height='70%'} --&gt;
-&lt;!-- knitr::include_graphics("./images/f_mt.gif") --&gt;
-&lt;!-- ``` --&gt;
+---
 
-&lt;!-- As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/) --&gt;
-&lt;!-- ] --&gt;
+# 2D vs 3D low-dimensional embeddings
 
-&lt;!-- .pull-right[ --&gt;
-&lt;!-- &lt;br&gt; --&gt;
-&lt;!-- - Variable transparency; map to variable space --&gt;
-&lt;!-- - Subsets of variation viewed as projection changes --&gt;
-&lt;!-- ] --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # 2D vs 3D low-dimensional embeddings --&gt;
-
-&lt;!-- ```{r, out.width='50%', out.height='50%'} --&gt;
-&lt;!-- knitr::include_graphics("./images/nelson98fig.PNG") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- - 2D tours: head tracked VR vs standard monitor --&gt;
-&lt;!-- - VR: ++ cluster identification, + structure, tie dimensionality, - bushing speed --&gt;
-
-&lt;!-- *Nelson et al. 1998* --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # 2D vs 3D low-dimensional embeddings --&gt;
-
-&lt;!-- ```{r, out.width='100%', out.height='100%'} --&gt;
-&lt;!-- knitr::include_graphics("./images/gracia16fig.PNG") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- - 2D and 3D scatterplots of PCA on standard monitor --&gt;
-&lt;!-- - 3D: + point distances, + identify outliers, slower in both --&gt;
-
-&lt;!-- *Gracia et al. 2016* --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # 2D vs 3D low-dimensional embeddings --&gt;
-
-&lt;!-- ```{r, out.width='30%', out.height='30%'} --&gt;
-&lt;!-- knitr::include_graphics("./images/wagner18fig.PNG") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- - 2D and 3D scatterplots of PCA on standard monitor and head mounted VR --&gt;
-&lt;!-- - head-mounted VR: more accuracy, easier to navigate, less comfortable --&gt;
-
-&lt;!-- *Wagner et al. 2018* --&gt;
-
+&lt;
 &lt;!-- --- --&gt;
 
 &lt;!-- # Extending UCS to 3D --&gt;
