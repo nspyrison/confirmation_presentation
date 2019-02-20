@@ -65,25 +65,6 @@ guided tour - optimizing holes index:
 
 ---
 
-# 2D vs 3D low-dimensional embeddings
-
-.pull-left[
-&lt;img src="./images/nelson98fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
-
-- 2D tours: head tracked VR vs standard monitor
-*Nelson et al. 1998*
-]
-
-.pull-right[
-Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
-
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
-- 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
-]
-
----
-
 # Research question
 
 .large[
@@ -105,7 +86,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 **RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
-**Work in the last year:**
+*Work in the last year:*
 
 - Manual choice - *manual tour* selecting a variable and manipulation *Cook &amp; Buja 1997*
     - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
@@ -117,14 +98,12 @@ of the sensitivity of structure to the original variables or parameters? **
 
 # Supply a basis, select a variable
 
-**Work in the last year:**
-
 - Start with the last projection of the previous guided tour:
 
 
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-5-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-4-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -139,33 +118,33 @@ of the sensitivity of structure to the original variables or parameters? **
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6645 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1273 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6802 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0635 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0057 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4892 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0152 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3956 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2024 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3419 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0986 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4068 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0330 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5271 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0312 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4604 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7139 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0175 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7199 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1000 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0813 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5912 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0902 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6723 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -178,7 +157,7 @@ of the sensitivity of structure to the original variables or parameters? **
 # Create a manipulation space
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -196,7 +175,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 *over a sequence of angles:* Rotate and project through manipulation space
 
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-8-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -241,12 +220,12 @@ Results:
 
 **RO #B) What benefits does UCS provide over popular alternatives?**
 
-**Future case study:**
+*Future case study:*
 
 - Principal component analysis (PCA) 
     - Static linear transformation that produces linear combinations of the variables in descending order of variation explained
 - T-distributed stochastic neighbor embedding (tSNE)
-    - Static non-linear transformation, preserves local clustering
+    - Static non-linear transformation, preserves local proximity
 - User controlled steering (USC), manual tour
     - Dynamic linear projections
 
@@ -280,6 +259,26 @@ Results:
 - Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality, outliers
 - Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
+
+
+# 2D vs 3D low-dimensional embeddings
+
+.pull-left[
+&lt;img src="./images/nelson98fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+- 2D tours: head tracked VR vs standard monitor
+*Nelson et al. 1998*
+]
+
+.pull-right[
+Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
+
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
+- 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
+]
 
 ---
 

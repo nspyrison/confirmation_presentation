@@ -161,27 +161,6 @@ knitr::include_graphics("./images/flea_holes.gif")
 
 ---
 
-# 2D vs 3D low-dimensional embeddings
-
-.pull-left[
-```{r, out.width='100%', out.height='100%'}
-knitr::include_graphics("./images/nelson98fig.PNG")
-```
-
-- 2D tours: head tracked VR vs standard monitor
-*Nelson et al. 1998*
-]
-
-.pull-right[
-Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
-
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
-- 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
-]
-
----
-
 # Research question
 
 .large[
@@ -203,7 +182,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 **RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
-**Work in the last year:**
+*Work in the last year:*
 
 - Manual choice - *manual tour* selecting a variable and manipulation *Cook & Buja 1997*
     - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
@@ -214,8 +193,6 @@ of the sensitivity of structure to the original variables or parameters? **
 ---
 
 # Supply a basis, select a variable
-
-**Work in the last year:**
 
 - Start with the last projection of the previous guided tour:
 
@@ -363,12 +340,12 @@ Results:
 
 **RO #B) What benefits does UCS provide over popular alternatives?**
 
-**Future case study:**
+*Future case study:*
 
 - Principal component analysis (PCA) 
     - Static linear transformation that produces linear combinations of the variables in descending order of variation explained
 - T-distributed stochastic neighbor embedding (tSNE)
-    - Static non-linear transformation, preserves local clustering
+    - Static non-linear transformation, preserves local proximity
 - User controlled steering (USC), manual tour
     - Dynamic linear projections
 
@@ -406,6 +383,28 @@ knitr::include_graphics("./images/IATK.png")
 - Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality, outliers
 - Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
+
+
+# 2D vs 3D low-dimensional embeddings
+
+.pull-left[
+```{r, out.width='100%', out.height='100%'}
+knitr::include_graphics("./images/nelson98fig.PNG")
+```
+
+---
+
+- 2D tours: head tracked VR vs standard monitor
+*Nelson et al. 1998*
+]
+
+.pull-right[
+Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
+
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
+- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
+- 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
+]
 
 ---
 
