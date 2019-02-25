@@ -171,10 +171,10 @@ of the sensitivity of structure to the original variables or parameters? **
 --
 
 **Research objectives:**
-- A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
-- B) What benefits does UCS provide over popular alternatives?
-- C) How do we extend UCS to 3D?
-- D) Does UCS with 3D displays provide perception benefits over 2D displays?
+- 1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
+- 2) What benefits does UCS provide over popular alternatives?
+- 3) How do we extend UCS to 3D?
+- 4) Does UCS with 3D displays provide perception benefits over 2D displays?
 
 ---
 
