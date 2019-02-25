@@ -178,9 +178,9 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# A) 2D User controlled steering
+# 1) 2D User controlled steering
 
-**RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
+**RO #1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
 *Work in the last year:*
 
@@ -336,9 +336,9 @@ Results:
 
 ---
 
-# B) UCS vs alternatives
+# 2) UCS vs alternatives
 
-**RO #B) What benefits does UCS provide over popular alternatives?**
+**RO #2) What benefits does UCS provide over popular alternatives?**
 
 *Future case study:*
 
@@ -351,9 +351,9 @@ Results:
 
 ---
 
-# C) Extending UCS to 3D
+# 3) Extending UCS to 3D
 
-**RO #C) How do we extend UCS to 3D?**
+**RO #3) How do we extend UCS to 3D?**
 
 *future exploratory design*
 
@@ -373,9 +373,9 @@ knitr::include_graphics("./images/IATK.png")
 
 ---
 
-# D) Low-dimension embeddings across display type
+# 4) Low-dimension embeddings across display type
 
-**RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?**
+**RO #4) Does UCS with 3D displays provide perception benefits over 2D displays?**
 
 *future empirical study*
 
@@ -419,24 +419,24 @@ library(scales)
 
 tasks <- tribble(
   ~Start,       ~End,         ~Project,     ~Task,
-  "2018-04-01", "2019-06-01", "A) 2D UCS",  "A) 2D UCS",
-  "2018-04-01", "2019-02-01", "A) 2D UCS",  "A) code",
-  "2018-12-01", "2019-06-01", "A) 2D UCS",  "A) paper (The R journal)",
+  "2018-04-01", "2019-06-01", "1) 2D UCS",  "1) 2D UCS",
+  "2018-04-01", "2019-02-01", "1) 2D UCS",  "1) code",
+  "2018-12-01", "2019-06-01", "1) 2D UCS",  "1) paper (The R journal)",
   "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation",
 
-  "2019-03-01", "2019-12-01", "C) 3D UCS",  "C) 3D UCS",
-  "2019-03-01", "2019-08-01", "C) 3D UCS",  "C) code",
-  "2019-06-01", "2019-12-01", "C) 3D UCS",  "C) paper (VAST)",
+  "2019-03-01", "2019-12-01", "3) 3D UCS",  "3) 3D UCS",
+  "2019-03-01", "2019-08-01", "3) 3D UCS",  "3) code",
+  "2019-06-01", "2019-12-01", "3) 3D UCS",  "3) paper (VAST)",
   "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review",
 
-  "2019-10-01", "2020-09-01", "D) UCS 2D vs 3D", "D) UCS across display type",
-  "2019-10-01", "2020-02-01", "D) UCS 2D vs 3D", "D) code",
-  "2020-01-01", "2020-04-01", "D) UCS 2D vs 3D", "D) experimental survey",
-  "2020-03-01", "2020-09-01", "D) UCS 2D vs 3D", "D) paper (CHI)",
+  "2019-10-01", "2020-09-01", "4) UCS 2D vs 3D", "4) UCS across display type",
+  "2019-10-01", "2020-02-01", "4) UCS 2D vs 3D", "4) code",
+  "2020-01-01", "2020-04-01", "4) UCS 2D vs 3D", "4) experimental survey",
+  "2020-03-01", "2020-09-01", "4) UCS 2D vs 3D", "4) paper (CHI)",
 
-  "2020-04-01", "2020-12-01", "B) UCS vs alts", "B) UCS vs alternatives",
-  "2020-04-01", "2020-08-01", "B) UCS vs alts", "B) code",
-  "2020-06-01", "2020-09-01", "B) UCS vs alts", "B) paper (VAST?)",
+  "2020-04-01", "2020-12-01", "2) UCS vs alts", "2) UCS vs alternatives",
+  "2020-04-01", "2020-08-01", "2) UCS vs alts", "2) code",
+  "2020-06-01", "2020-12-01", "2) UCS vs alts", "2) paper (VAST)",
 
   
   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
