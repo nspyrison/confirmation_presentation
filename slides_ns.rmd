@@ -4,8 +4,7 @@ author: "<br> Nicholas Spyrison <br> Monash University, Faculty of Information T
 date: "Candidature Confirmation <br> 21 February 2019 <br><br> *Slides -- [github.com/nspyrison/talk_confirmation2019](https://github.com/nspyrison/talk_confirmation2019)*"
 output:
   xaringan::moon_reader:
-    css: ["default","data_viz_theme.css"] # Style 1
-    #css: ["kunoichi", "ninjutsu", "mbs_acems_theme.css"] # Style 2
+    css: ["default","data_viz_theme.css"]
     self_contained: false
     nature:
       ratio: '16:9'
@@ -250,7 +249,7 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 
 *over a sequence of angles:* Rotate and project through manipulation space
 
-```{r, fig.hight=2, out.width='40%', out.height='40%'}
+```{r, fig.hight=2, out.width='55%', out.height='55%'}
 f_ang <- .35
 f_mt <- manual_tour(basis = f_bas,manip_var = f_mvar,angle = f_ang)
 
@@ -382,6 +381,7 @@ knitr::include_graphics("./images/IATK.png")
 - Task type: structure, UCS, clustering, dimensionality, outliers
 - Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
 
+---
 
 # 2D vs 3D low-dimensional embeddings
 
@@ -389,8 +389,6 @@ knitr::include_graphics("./images/IATK.png")
 ```{r, out.width='100%', out.height='100%'}
 knitr::include_graphics("./images/nelson98fig.PNG")
 ```
-
----
 
 - 2D tours: head tracked VR vs standard monitor
 *Nelson et al. 1998*
@@ -401,7 +399,7 @@ Related papers report improved accuracy, precision, and ease of identifying info
 
 - 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
 - 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
-- 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998*
+<!-- - 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998* -->
 ]
 
 ---
