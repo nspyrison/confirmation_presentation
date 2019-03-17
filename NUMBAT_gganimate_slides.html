@@ -63,9 +63,8 @@ dim(f_mt_df$data_slides)  # added frame
 
 ---
 
-# Plotting
+# Animating a tour 
 
-.pull-left[
 
 ```r
   ggplot2::ggplot() +
@@ -77,11 +76,8 @@ dim(f_mt_df$data_slides)  # added frame
                                transition_length = 0,
                                state_length = 1 / fps)
 ```
-]
 
-.pull-right[
 &lt;img src="NUMBAT_gganimate_slides_files/figure-html/unnamed-chunk-7-1.gif" width="20%" height="20%" style="display: block; margin: auto;" /&gt;
-]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

@@ -70,7 +70,7 @@ dim(f_mt_df$data_slides)  # added frame
 
 ---
 
-# Plotting
+# Animating a tour 
 
 ```{r, eval = FALSE}
   ggplot2::ggplot() +
