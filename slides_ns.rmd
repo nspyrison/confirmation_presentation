@@ -1,7 +1,7 @@
 ---
-title: "Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices"
+title: "Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices"
 author: "<br> Nicholas Spyrison <br> Monash University, Faculty of Information Technology <br><br> Supervisors: Prof. Kimbal Marriott,<br> Prof. Dianne Cook,<br> Prof. German Valencia"
-date: "Candidature Confirmation <br> 21 February 2019 <br><br> *Slides -- [github.com/nspyrison/talk_confirmation2019](https://github.com/nspyrison/talk_confirmation2019)*"
+date: "Candidature Confirmation <br> 27 March 2019 <br><br> *Slides -- [github.com/nspyrison/confirmation_talk](https://github.com/nspyrison/confirmation_talk)*"
 output:
   xaringan::moon_reader:
     css: ["default","data_viz_theme.css"]
@@ -22,12 +22,8 @@ knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "",
   fig.align = "center"
-  #fig.show = "hold",
-  #strip.white = TRUE,
 )
 
-#options(htmltools.dir.version = FALSE)
-#htmlwidgets::sizingPolicy(padding = 0, browser.fill = TRUE)
 library(spinifex)
 library(gganimate) 
 library(ggplot2)
@@ -123,9 +119,9 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka & 
 
 # Visualizing multivariate spaces
 
-- Visualization becomes complex; use dimension reduction via linear projection
-- One static projection doesn't capture the full image
-- Rotation of the object reveals it's shape
+- Visualization becomes complex; use dimension reduction
+- One static projection doesn't portray all of the variation
+- Dynamic rotations do a better job of revealing the structure
 
 **Shadow puppet analogy (linear projection from 3- to 2D):**
 
@@ -133,12 +129,12 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka & 
 
 ---
 
-# Dynamic linear projections, tours
+# Dynamic linear projections, tours   
 
-**Already available in R on CRAN,** `tourr` package, *Wickham et al. 2011*
+**Available on CRAN,** `tourr` R package, *Wickham et al. 2011*
 
 - Random choice - *grand tour* random forest walk in $p$-space *Asimov 1985*
-- Data driven - *guided tour* projection pursuit, optimize an objective function on the projection *Hurley & Buja 1990*
+- Data-driven - *guided tour* projection pursuit, optimize an objective function on the projection *Hurley & Buja 1990*
 
 --
 
@@ -160,16 +156,8 @@ knitr::include_graphics("./images/flea_holes.gif")
 
 ---
 
-# Research question
+# Research objectives
 
-.large[
-** Does allowing the user to steer the tour, facilitate exploration and understanding
-of the sensitivity of structure to the original variables or parameters? **
-]
-
---
-
-**Research objectives:**
 - 1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
 - 2) What benefits does UCS provide over popular alternatives?
 - 3) How do we extend UCS to 3D?
@@ -177,7 +165,7 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# 1) 2D User controlled steering
+# 1) 2D User-controlled steering
 
 **RO #1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
 
@@ -327,7 +315,7 @@ Given:
 
 Results:
 - When the contribution of PC6 is full, the plane of green points extends into the line of sight
-- When the contribution is zeroed, the line is purple points is approaching a head on view
+- When the contribution is zeroed, the line of purple points are approaching a head-on view
 ]
 
 
@@ -340,9 +328,9 @@ Results:
 *Future case study:*
 
 - Principal component analysis (PCA) 
-    - Static linear transformation that produces linear combinations of the variables in descending order of variation explained
+    - The static linear transformation that produces linear combinations of the variables in descending order of variation explained
 - T-distributed stochastic neighbor embedding (tSNE)
-    - Static non-linear transformation, preserves local proximity
+    - Static non-linear transformation preserves local proximity
 - User controlled steering (USC), manual tour
     - Dynamic linear projections
 
@@ -390,16 +378,16 @@ knitr::include_graphics("./images/IATK.png")
 knitr::include_graphics("./images/nelson98fig.PNG")
 ```
 
-- 2D tours: head tracked VR vs standard monitor
+- 2D tours: head-tracked VR vs standard monitor
 *Nelson et al. 1998*
 ]
 
 .pull-right[
 Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
 
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
-<!-- - 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998* -->
+- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor, *Gracia et al. 2016*
+- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor and head-mounted VR, *Wagner et al. 2018*
+<!-- - 2D tours: head-tracked VR vs standard monitor, *Nelson et al. 1998* -->
 ]
 
 ---
@@ -489,11 +477,12 @@ timeline
 ---
 class: center, middle
 
-# Thanks!
+# Acknowledgements
+
 
 Slides created in R using rmarkdown and xaringan
 
-Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019)
+Slides -- [github.com/nspyrison/confirmation_talk]( https://github.com/nspyrison/confirmation_talk)
 <br><br><br><br>
 
 .left[
