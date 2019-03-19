@@ -5,8 +5,8 @@ library(magrittr)
 library(knitr)
 library(kableExtra)
 
-## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
-array2static_sub <- function(.m_tour, .data, .m_var, .cat, .mag =2.2, .sub=3)
+## FUNCTION FOR STATIC FACET OUTPUT
+array2facet <- function(.m_tour, .data, .m_var, .cat, .sub=15)
 {
   slides       <- array2df(array = .m_tour, data = .data)
   basis_slides <- slides$basis_slides
@@ -29,55 +29,46 @@ array2static_sub <- function(.m_tour, .data, .m_var, .cat, .mag =2.2, .sub=3)
   ## circle
   angle <- seq(0, 2 * pi, length = 180)
   circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
-  circ[nrow(circ)+1, ] <- NA
+  #circ[nrow(circ)+1, ] <- NA
   ## data asethetics
   data_slides <- data.frame(data_slides, cat = rep(.cat, n_slides))
 
   grid_b <- grid_t <-
-    data.frame(slide = 1:n_slides,
-               x = .mag*rep(1:.sub), y = .mag*rep(1, each = 3))
-  grid_t$y <- grid_t$y + max(grid_t$y)
+    data.frame(slide = 1:n_slides)
   # OUTER JOIN
   basis_grid <- merge(x = basis_slides, y = grid_t, by = "slide", all = TRUE)
   # CROSS JOIN
   circ_grid  <- merge(x = circ, y = grid_t, by = NULL)
   # OUTER JOIN
   data_grid  <- merge(x = data_slides, y = grid_b, by = "slide", all = TRUE)
+  # basis_grid$slide  <- paste0("frame ",basis_grid$slide)
+  # circ_grid$slide   <- paste0("frame ",circ_grid$slide)
+  # data_slides$slide <- paste0("frame ",data_slides$slide)
 
-  # BASIS
-  gg1 <-
+  gg <-
     ggplot(data = basis_grid) +
     # AXES LINE SEGMETNS
-    geom_segment(aes(x = V1 + x, y = V2 + y, xend = x, yend = y),
+    geom_segment(aes(x = V1 , y = V2, xend = 0, yend = 0),
                  color = col_v, size = siz_v) +
     # AXES TEXT LABELS
-    geom_text(aes(x = V1 + x, y = V2 + y, label = lab_abbr),
+    geom_text(aes(x = V1, y = V2, label = lab_abbr),
               color = col_v, vjust = "outward", hjust = "outward") +
-    # AXES FRAME NUM
-    geom_text(aes(x = x - .7, y = y + 1.1,
-                  label = paste0("frame: ",slide)), color = "grey50") +
     # AXES CIRCLE PATH
-    suppressWarnings( # Suppress for "Removed 1 rows containing missing values."
-      geom_path(data = circ_grid, color = "grey80",
-                mapping = aes(x = x+c_x, y = y+c_y))
-    )
-
-  # PROJECTION
-  gg2 <- gg1 +
+    geom_path(data = circ_grid, color = "grey80",
+              mapping = aes(x = c_x, y = c_y)) +
     # PROJ DATA POINTS
     geom_point(data = data_grid, size = .7,
-               mapping = aes(x = V1 + x, y = V2 + y, color = cat),
+               mapping = aes(x = V1, y = V2-2, color = cat),
                shape = as.integer(cat) + 15) +
-    # PROJ DATA FRAME NUM
-    geom_text(data = data_grid, color = "grey50",
-              mapping = aes(x = x - .7, y = y + 1.1,
-                            label = paste0("frame: ",slide))) +
+    # FACET
+    facet_wrap(. ~ slide) +
+    # SETTINGS
     theme_void() +
     scale_color_brewer(palette = "Dark2") +
     coord_fixed() +
     theme(legend.position="none")
 
-  gg2
+  gg
 }
 
 f_dat  <- tourr::rescale(flea[,1:6])
@@ -95,4 +86,4 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas))
 f_ang <- .35
 f_mt <- manual_tour(basis = f_bas,manip_var = f_mvar,angle = f_ang)
 
-array2static_sub(.m_tour = f_mt, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
+array2facet(.m_tour = f_mt, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
