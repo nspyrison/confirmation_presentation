@@ -158,10 +158,10 @@ knitr::include_graphics("./images/flea_holes.gif")
 
 # Research objectives
 
-- 1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
-- 2) What benefits does UCS provide over popular alternatives?
+- 1) How can user-controlled steering (UCS) be generalized to work within graphic-specific environments for 2D projections?
+- 2) Does 2D UCS tours provide benefits over alternatives?
 - 3) How do we extend UCS to 3D?
-- 4) Does UCS with 3D displays provide perception benefits over 2D displays?
+- 4) Does UCS in 3D displays provide benefits over 2D displays?
 
 ---
 
@@ -280,7 +280,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 # UCS Application -- Hadronic collision experiments
 
-Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et al. 2018*, guided tours *Cook, et al. 2018*
+Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et al. 2018*, studied with guided tours *Cook, et al. 2018*
 
 .pull-left[
 ```{r, results='hide'}
@@ -314,7 +314,7 @@ Given:
 - Data summarized in 6 principal components, ~48% of the variation
 - Starting basis from previously published figures
 
-Results:
+Conclusion, PC6 is important for explaing structure features in the data:
 - When the contribution of PC6 is full, the plane of green points extends into the line of sight
 - When the contribution is zeroed, the line of purple points are approaching a head-on view
 ]
@@ -350,7 +350,7 @@ knitr::include_graphics("./images/DIS_mt.gif")
 
 .pull-right[
 ```{r, out.width='70%', out.height='70%'}
-knitr::include_graphics("./images/IATK.png")
+knitr::include_graphics("./images/RO3MockUp2.PNG")
 ```
 ]
 
@@ -417,7 +417,6 @@ tasks <- tribble(
   "2020-04-01", "2020-12-01", "2) UCS vs alts", "2) UCS vs alternatives",
   "2020-04-01", "2020-08-01", "2) UCS vs alts", "2) code",
   "2020-06-01", "2020-12-01", "2) UCS vs alts", "2) paper (VAST)",
-
   
   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
   "2020-09-01", "2021-04-01", "Milestones", "thesis composition"
