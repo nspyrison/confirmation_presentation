@@ -12,7 +12,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-```{r setup_pres, include=FALSE,}
+```{r setup_pres, include=FALSE}
 knitr::opts_chunk$set(
   eval      = TRUE,  # R code 
   echo      = FALSE, # code
@@ -165,25 +165,26 @@ knitr::include_graphics("./images/flea_holes.gif")
 
 ---
 
-# 1) 2D User-controlled steering
+# RO 1) How can UCS be generalized to work within graphic-specific environments for 2D projections?
 
-**RO #1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-
-*Work in the last year:*
-
-- Manual choice - *manual tour* selecting a variable and manipulation *Cook & Buja 1997*
-    - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
+- Manual choice - *manual tour* user-controlled manipulation of a selected variable *Cook & Buja 1997*
+    - Used to explore the sensitivty of the structure to the variables contributing to the porjection
+    
+*Work in progress & paper to be submitted to the R Journal:*
+- Algorithm generalising for consumption by graphic envirnments
+- R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
-    - Particularly useful for exploring the local structure of an interesting feature
-    - Start with the last projection of the previous guided tour
+    - manual tours in R, extending the `tourr` package
+    - platform to pass tours to animation-specific envirnoments
+- application to contemporary high erergy physics
 
 ---
 
-# Supply a basis, select a variable
+# Step 1) Choose a variable of interest
 
-- Start with the last projection of the previous guided tour:
+- Starting with the last projection of the previous holes-indexed guided tour:
 
-```{r, results='hide'}
+```{r setup, results='hide'}
 f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
@@ -214,7 +215,7 @@ f_bas %>% kable() %>% kable_styling()
 
 ---
 
-# Create a manipulation space
+# Step 2) Create a manipulation space
 
 .pull-left[
 ```{r, out.height='80%', out.width='80%'}
@@ -224,40 +225,40 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 
 .pull-right[
 <br><br>
-- Lay the reference frame on a table
-- Initialize a manipulation space
-- Changing the angle between the red line and the blue line controls the x-y coefficients of the selected variable (constrained rotation on the others)
-- Lock the angle on the blue plane; radial rotation
+- Use the Gram-Schmidt process to orthonormaliaze a dimension with a full contribution to the manipution variable
+- This provides a means to rotate the basis out of the projection plane (for example, lifting paper off of the table rather than being confined to the surface)
+- Create a sequence of values for the 'out-of-plane' angle that will change the projection coeffienients of the variable
 ]
 
 ---
 
-# Rotate manipulation space
+# Step 3) Genrate the rotation
 
+*Over the sequence of angles:* rotate the manipulation space for each element.
 
-*over a sequence of angles:* Rotate and project through manipulation space
+- Project the data
+- Plot the first two variables of rotated basis and projection
 
-```{r, fig.hight=2, out.width='55%', out.height='55%'}
+```{r, fig.hight=2, out.width='45%', out.height='45%'}
 f_ang <- .35
 f_mt <- manual_tour(basis = f_bas,manip_var = f_mvar,angle = f_ang)
 
 array2static_sub(.m_tour = f_mt, .data = f_dat,
                  .m_var = f_mvar, .cat = f_cat)
 
-### white space export is odd, alternatively can use screenshot.
+### Leaves white space across t+b, alternatively can use screenshot:
 #knitr::include_graphics("./images/rotate_manip_sp.PNG")
 ```
-
 
 ---
 
 # Manual tour allows for UCS
 
-- `aede2` is important for distinguishing between the green and purple clusters.
+- `aede2` is important for distinguishing between the green and purple clusters
 
 ```{r, results='hide'}
 library(spinifex)
-f_ang  <- .18
+f_ang  <- .08
 f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas))
 
 ### GGANIMATE
@@ -321,9 +322,7 @@ Results:
 
 ---
 
-# 2) UCS vs alternatives
-
-**RO #2) What benefits does UCS provide over popular alternatives?**
+# RO 2) What benefits does UCS provide over popular alternatives?
 
 *Future case study:*
 
@@ -336,9 +335,8 @@ Results:
 
 ---
 
-# 3) Extending UCS to 3D
+# RO 3) How do we extend UCS to 3D?
 
-**RO #3) How do we extend UCS to 3D?**
 
 *future exploratory design*
 
@@ -358,9 +356,7 @@ knitr::include_graphics("./images/IATK.png")
 
 ---
 
-# 4) Low-dimension embeddings across display type
-
-**RO #4) Does UCS with 3D displays provide perception benefits over 2D displays?**
+# RO 4) Does UCS in 3D displays provide benefits over 2D displays?
 
 *future empirical study*
 

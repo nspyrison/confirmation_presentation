@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices</title>
+    <title>Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices</title>
     <meta charset="utf-8">
     <meta name="author" content="  Nicholas Spyrison   Monash University, Faculty of Information Technology    Supervisors: Prof. Kimbal Marriott,  Prof. Dianne Cook,  Prof. German Valencia" />
     <link href="slides_ns_files/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -12,9 +12,9 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Dynamic visualization of high-dimensional data via low-dimension projections across 2D and 3D display devices
+# Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices
 ### <br> Nicholas Spyrison <br> Monash University, Faculty of Information Technology <br><br> Supervisors: Prof. Kimbal Marriott,<br> Prof. Dianne Cook,<br> Prof. German Valencia
-### Candidature Confirmation <br> 21 February 2019 <br><br> <em>Slides – <a href="https://github.com/nspyrison/talk_confirmation2019">github.com/nspyrison/talk_confirmation2019</a></em>
+### Candidature Confirmation <br> 27 March 2019 <br><br> <em>Slides – <a href="https://github.com/nspyrison/confirmation_talk">github.com/nspyrison/confirmation_talk</a></em>
 
 ---
 
@@ -32,9 +32,9 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka &a
 
 # Visualizing multivariate spaces
 
-- Visualization becomes complex; use dimension reduction via linear projection
-- One static projection doesn't capture the full image
-- Rotation of the object reveals it's shape
+- Visualization becomes complex; use dimension reduction
+- One static projection doesn't portray all of the variation
+- Dynamic rotations do a better job of revealing the structure
 
 **Shadow puppet analogy (linear projection from 3- to 2D):**
 
@@ -42,12 +42,12 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka &a
 
 ---
 
-# Dynamic linear projections, tours
+# Dynamic linear projections, tours   
 
-**Already available in R on CRAN,** `tourr` package, *Wickham et al. 2011*
+**Available on CRAN,** `tourr` R package, *Wickham et al. 2011*
 
 - Random choice - *grand tour* random forest walk in `\(p\)`-space *Asimov 1985*
-- Data driven - *guided tour* projection pursuit, optimize an objective function on the projection *Hurley &amp; Buja 1990*
+- Data-driven - *guided tour* projection pursuit, optimize an objective function on the projection *Hurley &amp; Buja 1990*
 
 --
 
@@ -65,16 +65,8 @@ guided tour - optimizing holes index:
 
 ---
 
-# Research question
+# Research objectives
 
-.large[
-** Does allowing the user to steer the tour, facilitate exploration and understanding
-of the sensitivity of structure to the original variables or parameters? **
-]
-
---
-
-**Research objectives:**
 - 1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?
 - 2) What benefits does UCS provide over popular alternatives?
 - 3) How do we extend UCS to 3D?
@@ -82,28 +74,29 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# 1) 2D User controlled steering
+# RO 1) How can UCS be generalized to work within graphic-specific environments for 2D projections?
 
-**RO #1) Can user controlled steering (UCS) be utilized in an environment providing non-interactive animation?**
-
-*Work in the last year:*
-
-- Manual choice - *manual tour* selecting a variable and manipulation *Cook &amp; Buja 1997*
-    - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
+- Manual choice - *manual tour* user-controlled manipulation of a selected variable *Cook &amp; Buja 1997*
+    - Used to explore the sensitivty of the structure to the variables contributing to the porjection
+    
+*Work in progress &amp; paper to be submitted to the R Journal:*
+- Algorithm generalising for consumption by graphic envirnments
+- R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
-    - Particularly useful for exploring the local structure of an interesting feature
-    - Start with the last projection of the previous guided tour
+    - manual tours in R, extending the `tourr` package
+    - platform to pass tours to animation-specific envirnoments
+- application to contemporary high erergy physics
 
 ---
 
-# Supply a basis, select a variable
+# Step 1) Choose a variable of interest
 
-- Start with the last projection of the previous guided tour:
+- Starting with the last projection of the previous holes-indexed guided tour:
 
 
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-4-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-3-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -118,33 +111,33 @@ of the sensitivity of structure to the original variables or parameters? **
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5681 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1508 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7334 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2182 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0810 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4645 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1176 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3492 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1690 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4158 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1780 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3475 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1029 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4261 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0610 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5760 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7777 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2114 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6394 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0832 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1633 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6019 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0641 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6090 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -154,35 +147,35 @@ of the sensitivity of structure to the original variables or parameters? **
 
 ---
 
-# Create a manipulation space
+# Step 2) Create a manipulation space
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-5-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
 &lt;br&gt;&lt;br&gt;
-- Lay the reference frame on a table
-- Initialize a manipulation space
-- Changing the angle between the red line and the blue line controls the x-y coefficients of the selected variable (constrained rotation on the others)
-- Lock the angle on the blue plane; radial rotation
+- Use the Gram-Schmidt process to orthonormaliaze a dimension with a full contribution to the manipution variable
+- This provides a means to rotate the basis out of the projection plane (for example, lifting paper off of the table rather than being confined to the surface)
+- Create a sequence of values for the 'out-of-plane' angle that will change the projection coeffienients of the variable
 ]
 
 ---
 
-# Rotate manipulation space
+# Step 3) Genrate the rotation
 
+*Over the sequence of angles:* rotate the manipulation space for each element.
 
-*over a sequence of angles:* Rotate and project through manipulation space
+- Project the data
+- Plot the first two variables of rotated basis and projection
 
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="55%" height="55%" style="display: block; margin: auto;" /&gt;
-
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Manual tour allows for UCS
 
-- `aede2` is important for distinguishing between the green and purple clusters.
+- `aede2` is important for distinguishing between the green and purple clusters
 
 
 &lt;img src="./images/f_mt.gif" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
@@ -210,30 +203,27 @@ Given:
 
 Results:
 - When the contribution of PC6 is full, the plane of green points extends into the line of sight
-- When the contribution is zeroed, the line is purple points is approaching a head on view
+- When the contribution is zeroed, the line of purple points are approaching a head-on view
 ]
 
 
 ---
 
-# 2) UCS vs alternatives
-
-**RO #2) What benefits does UCS provide over popular alternatives?**
+# RO 2) What benefits does UCS provide over popular alternatives?
 
 *Future case study:*
 
 - Principal component analysis (PCA) 
-    - Static linear transformation that produces linear combinations of the variables in descending order of variation explained
+    - The static linear transformation that produces linear combinations of the variables in descending order of variation explained
 - T-distributed stochastic neighbor embedding (tSNE)
-    - Static non-linear transformation, preserves local proximity
+    - Static non-linear transformation preserves local proximity
 - User controlled steering (USC), manual tour
     - Dynamic linear projections
 
 ---
 
-# 3) Extending UCS to 3D
+# RO 3) How do we extend UCS to 3D?
 
-**RO #3) How do we extend UCS to 3D?**
 
 *future exploratory design*
 
@@ -249,9 +239,7 @@ Results:
 
 ---
 
-# 4) Low-dimension embeddings across display type
-
-**RO #4) Does UCS with 3D displays provide perception benefits over 2D displays?**
+# RO 4) Does UCS in 3D displays provide benefits over 2D displays?
 
 *future empirical study*
 
@@ -267,16 +255,16 @@ Results:
 .pull-left[
 &lt;img src="./images/nelson98fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
-- 2D tours: head tracked VR vs standard monitor
+- 2D tours: head-tracked VR vs standard monitor
 *Nelson et al. 1998*
 ]
 
 .pull-right[
 Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
 
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA (linear projection) on standard monitor and head mounted VR, *Wagner et al. 2018*
-&lt;!-- - 2D tours: head tracked VR vs standard monitor, *Nelson et al. 1998* --&gt;
+- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor, *Gracia et al. 2016*
+- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor and head-mounted VR, *Wagner et al. 2018*
+&lt;!-- - 2D tours: head-tracked VR vs standard monitor, *Nelson et al. 1998* --&gt;
 ]
 
 ---
@@ -288,11 +276,12 @@ Related papers report improved accuracy, precision, and ease of identifying info
 ---
 class: center, middle
 
-# Thanks!
+# Acknowledgements
+
 
 Slides created in R using rmarkdown and xaringan
 
-Slides -- [github.com/nspyrison/talk_confirmation2019]( https://github.com/nspyrison/talk_confirmation2019)
+Slides -- [github.com/nspyrison/confirmation_talk]( https://github.com/nspyrison/confirmation_talk)
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 .left[
