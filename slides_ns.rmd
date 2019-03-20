@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
   echo      = FALSE, # code text
   include   = TRUE,  # plots
   results   = 'asis', # text 'markup' 'asis' 'hold' 'hide'
-  message   = F, warning = F, error = F, cache = T, cache.lazy = T,
+  message   = F, warning = F, error = F, cache = F, cache.lazy = F,
   collapse  = TRUE,
   fig.align = "center"
 )
@@ -37,7 +37,7 @@ array2static_sub <- function(.m_tour, .data, .m_var, .cat, .mag =2.2, .sub=3)
   basis_slides <- slides$basis_slides
   data_slides  <- slides$data_slides
   basis_slides <- dplyr::filter(basis_slides, slide %in% 1:.sub)
-  data_slides  <- dplyr::filter(data_slides, slide %in% 1:.sub)
+  data_slides  <- dplyr::filter(data_slides,  slide %in% 1:.sub)
   n_slides     <- max(basis_slides$slide)
   
   # Initialize
@@ -134,6 +134,7 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka & 
 
 - Random choice - *grand tour* random forest walk in $p$-space *Asimov 1985*
 - Data-driven - *guided tour* projection pursuit, optimize an objective function on the projection *Hurley & Buja 1990*
+- Many other geometric displays, we'll discuss scatterplot
 
 --
 
@@ -151,6 +152,29 @@ guided tour - optimizing holes index:
 ```{r, echo=F, out.height= '70%', out.width='70%'}
 knitr::include_graphics("./images/flea_holes.gif")
 ```
+]
+
+---
+
+# 3D and immersive 3D data visualization
+
+
+.pull-left[
+```{r, out.width='100%', out.height='100%'}
+knitr::include_graphics("./images/nelson98fig.PNG")
+```
+
+*Nelson et al. 1998*
+- tours: head-tracked VR vs standard monitor
+-
+]
+
+.pull-right[
+- On 2D monitors: 3D visuals generally have improved perception accuracy, though lower manipulation speed *Lee 1986, Wickens 1994, Tory 2006, counterexample: sedlmair 2013*
+
+- Immersive 3D and static projections report similar perceptive gains, lower manipulation speed, and less comfort *Gracia 2016, Wagner 2018, Nelson 1998*
+
+- With the improved quality, increasing audience, and reduced cost of modern VR, its timely to research dynamic projections in VR 
 ]
 
 ---
@@ -367,34 +391,19 @@ knitr::include_graphics("./images/RO3MockUp2.PNG")
 
 *future usability study* -- lineup desgin *Hofmann et al. 2012*
 
-```{r, out.width='70%', out.height='70%'}
+.pull-left[
+- Visual variant of statistical p-test, pick the real data against data generated from the null hypothesis
+- quantative comparison across display type
+```{r, out.width='80%', out.height='80%'}
 knitr::include_graphics("./images/hofmann12fig.PNG")
 ```
+]
 
+.pull-right[
 **Design space:**
 - Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality
 - Measures: accuracy, speed, confidence, preference, demographic information, VR and data visualization expertise
-
-
----
-
-# 2D vs 3D low-dimensional embeddings
-
-.pull-left[
-```{r, out.width='100%', out.height='100%'}
-knitr::include_graphics("./images/nelson98fig.PNG")
-```
-
-- 2D tours: head-tracked VR vs standard monitor
-*Nelson et al. 1998*
-]
-
-.pull-right[
-Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
-
-- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor and head-mounted VR, *Wagner et al. 2018*
 ]
 
 ---

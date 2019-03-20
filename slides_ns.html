@@ -48,6 +48,7 @@ Datasaurus dozen; same means, standard deviations, and correlations, *Matejka &a
 
 - Random choice - *grand tour* random forest walk in `\(p\)`-space *Asimov 1985*
 - Data-driven - *guided tour* projection pursuit, optimize an objective function on the projection *Hurley &amp; Buja 1990*
+- Many other geometric displays, we'll discuss scatterplot
 
 --
 
@@ -61,6 +62,27 @@ grand tour (random):
 .pull-right[
 guided tour - optimizing holes index:
 &lt;img src="./images/flea_holes.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# 2D vs 3D low-dimensional embeddings
+
+
+.pull-left[
+&lt;img src="./images/nelson98fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+
+*Nelson et al. 1998*
+- tours: head-tracked VR vs standard monitor
+-
+]
+
+.pull-right[
+On 2D monitors: 3D visuals generally have improved perception accuracy, though lower manipulation speed *Lee 1986, Wickens 1994, Tory 2006, counterexample: sedlmair 2013*
+
+Immersive 3D and static projections report similar perceptive gains, lower manipulation speed, and less comfort *Gracia 2016, Wagner 2018, Nelson 1998*
+
+With the improved quality, increasing audience, and reduced cost of modern VR, its timely to research dynamic projections in VR 
 ]
 
 ---
@@ -96,7 +118,7 @@ guided tour - optimizing holes index:
 
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-3-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-4-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -111,33 +133,33 @@ guided tour - optimizing holes index:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6011 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.2236 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0131 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0765 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4579 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0041 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4011 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2311 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3425 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1368 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3674 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0481 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5726 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1239 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5163 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7312 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1567 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7527 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1013 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2062 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5203 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1107 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6536 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -150,7 +172,7 @@ guided tour - optimizing holes index:
 # Step 2) Create a manipulation space
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-5-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -169,11 +191,11 @@ guided tour - optimizing holes index:
 - Project the data
 - Plot the first two variables of rotated basis and projection
 
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Manual tour allows for UCS
+# Display as an animation
 
 - `aede2` is important for distinguishing between the green and purple clusters
 
@@ -218,9 +240,9 @@ Conclusion, PC6 is important for explaing structure features in the data:
 - Multi-Dimensional Scaling
     - Non-lieaner dimension reduction that compares pariwise distance bewteen observations
 - T-distributed Stochastic Neighbor Embedding (tSNE)
-    - Static non-linear transformation preserves local proximity and reduces relaive entropy.
+    - Static non-linear transformation preserves local proximity and reduces relaive entropy
 - User-controlled steering (USC), manual tour
-    - Dynamic linear projections
+    - Dynamic linear projections controling the contribution of a selected variable
 
 Measures: variation, variable tranparency, clustering, structure
 Design space: data sets, techniques, and measures of comparison
@@ -233,7 +255,7 @@ Design space: data sets, techniques, and measures of comparison
 
 *future algorithm design*
 
-Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* for common user interface acrross display device.
+Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* for common user interface acrross display device
 
 - First for 3D scatterplots and then extended to mutli-dimensional function surfaces.
 
@@ -251,31 +273,17 @@ Extend UCS algorithm to 3D projections and integrate with Immersive Analytics To
 
 *future usability study* -- lineup desgin *Hofmann et al. 2012*
 
-&lt;img src="./images/hofmann12fig.PNG" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+.pull-left[
+- Visual variant of statistical p-test, pick the real data against data generated from the null hypothesis
+- quantative comparison across display type
+&lt;img src="./images/hofmann12fig.PNG" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+]
 
+.pull-right[
 **Design space:**
 - Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality
 - Measures: accuracy, speed, confidence, preference, demographic information, VR and data visualization expertise
-
-
----
-
-# 2D vs 3D low-dimensional embeddings
-
-.pull-left[
-&lt;img src="./images/nelson98fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
-
-- 2D tours: head-tracked VR vs standard monitor
-*Nelson et al. 1998*
-]
-
-.pull-right[
-Related papers report improved accuracy, precision, and ease of identifying information, but decreased speed and comfort
-
-- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor, *Gracia et al. 2016*
-- 2D and 3D scatterplots of PCA (linear projection) on a standard monitor and head-mounted VR, *Wagner et al. 2018*
-&lt;!-- - 2D tours: head-tracked VR vs standard monitor, *Nelson et al. 1998* --&gt;
 ]
 
 ---
