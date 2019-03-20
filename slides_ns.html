@@ -66,7 +66,7 @@ guided tour - optimizing holes index:
 
 ---
 
-# 2D vs 3D low-dimensional embeddings
+# 3D and immersive 3D data visualization
 
 
 .pull-left[
@@ -74,15 +74,15 @@ guided tour - optimizing holes index:
 
 *Nelson et al. 1998*
 - tours: head-tracked VR vs standard monitor
--
+- better cluster and shape identification, slower brushing
 ]
 
 .pull-right[
-On 2D monitors: 3D visuals generally have improved perception accuracy, though lower manipulation speed *Lee 1986, Wickens 1994, Tory 2006, counterexample: sedlmair 2013*
+3D vs orthogonal 2D: 3D visuals generally convey more information with more speed, manipulation is slower, though 3D with 2D gives best perception *Lee 1986, Wickens 1994, Tory 2006, counterexample: sedlmair 2013*
 
-Immersive 3D and static projections report similar perceptive gains, lower manipulation speed, and less comfort *Gracia 2016, Wagner 2018, Nelson 1998*
+Embedded multivariate data in 3D report improved accuracy, faster response time, but a slower manipulation speed and less comfort *Gracia 2016, Wagner 2018, Nelson 1998*
 
-With the improved quality, increasing audience, and reduced cost of modern VR, its timely to research dynamic projections in VR 
+With the improved quality, increasing audience, and reduced cost of modern VR it is timely to research dynamic projections in VR 
 ]
 
 ---
@@ -94,20 +94,22 @@ With the improved quality, increasing audience, and reduced cost of modern VR, i
 - 3) How do we extend UCS to 3D?
 - 4) Does UCS in 3D displays provide benefits over 2D displays?
 
+&lt;img src="./images/ProjectOverview.PNG" width="60%" height="60%" style="display: block; margin: auto;" /&gt;
+
 ---
 
 # RO 1) How can UCS be generalized to work within graphic-specific environments for 2D projections?
 
 - Manual choice - *manual tour* user-controlled manipulation of a selected variable *Cook &amp; Buja 1997*
-    - Used to explore the sensitivty of the structure to the variables contributing to the porjection
+    - Used to explore the sensitivity of the structure to the variables contributing to the projection
     
 *Algorithm design, work in progress &amp; paper to be submitted to the R Journal:*
-- Algorithm generalising for consumption by graphic envirnments
+- Algorithm generalizing for consumption by graphics environments
 - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
     - manual tours in R, extending the `tourr` package
-    - platform to pass tours to animation-specific envirnoments
-- application to contemporary high erergy physics
+    - platform to pass tours to animation-specific environments
+- application to contemporary high energy physics
 
 ---
 
@@ -118,7 +120,7 @@ With the improved quality, increasing audience, and reduced cost of modern VR, i
 
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-4-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-5-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -133,33 +135,33 @@ With the improved quality, increasing audience, and reduced cost of modern VR, i
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6222 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0131 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6409 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1448 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0041 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0657 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4153 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1368 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3674 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2033 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3394 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1239 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5163 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0255 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5332 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7527 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7340 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0424 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1107 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6536 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0649 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6366 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -172,26 +174,26 @@ With the improved quality, increasing audience, and reduced cost of modern VR, i
 # Step 2) Create a manipulation space
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
 &lt;br&gt;&lt;br&gt;
-- Orthonormaliaze a dimension with a full contribution to the manipution variable
-- This provides a means to rotate the basis out of the projection plane (for example, lifting paper off of the table rather than being confined to the surface)
-- Create a sequence of values for the 'out-of-plane' angle that will change the projection coeffienients of the variable
+- Orthonormalize a dimension with a full contribution to the manipulation variable
+- This provides a means to rotate the basis out of the projection plane (for example, lifting paper off the table rather than being confined to the surface)
+- Create a sequence of values for the 'out-of-plane' angle that will change the projection coefficients of the manipulation variable
 ]
 
 ---
 
-# Step 3) Genrate the rotation
+# Step 3) Generate the rotation
 
-*Over the sequence of angles:* rotate the manipulation space for each element.
+*Over the sequence of angles:* rotate the manipulation space for each element
 
 - Project the data
-- Plot the first two variables of rotated basis and projection
+- Plot the first two variables of the rotated basis and projection
 
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-8-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -200,14 +202,14 @@ With the improved quality, increasing audience, and reduced cost of modern VR, i
 - `aede2` is important for distinguishing between the green and purple clusters
 
 
-&lt;img src="./images/f_mt.gif" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/f_mt.gif" width="37%" height="37%" style="display: block; margin: auto;" /&gt;
 
 As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 
 ---
 
-# Application -- high erergy physics
+# Application -- high energy physics
 
 Hadronic collision experiment data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et al. 2018*, studied with guided tours *Cook, et al. 2018*
 
@@ -223,28 +225,28 @@ Given:
 - Data summarized in 6 principal components, ~48% of the variation
 - Starting basis from previously published figures
 
-Conclusion, PC6 is important for explaing structure features in the data:
+Conclusion, PC6 is important in explaining the structure features in the data:
 - When the contribution of PC6 is full, the plane of green points extends into the line of sight
-- When the contribution is zeroed, the line of purple points are approaching a head-on view
+- When the contribution is zeroed, the line of purple points is approaching a head-on view
 ]
 
 
 ---
 
-# RO 2) What benefits does UCS provide over popular alternatives?
+# RO 2) What benefits does UCS provide over alternatives?
 
-*Future performance comaparison measured across contemporary benchmark datasets*
+*Future performance comparison measured across contemporary benchmark datasets*
 
 - Principal Component Analysis (PCA) 
     - The static linear transformation that produces linear combinations of the variables in descending order of variation explained
 - Multi-Dimensional Scaling
-    - Non-lieaner dimension reduction that compares pariwise distance bewteen observations
+    - Non-leaner dimension reduction that compares the pairwise distance between observations
 - T-distributed Stochastic Neighbor Embedding (tSNE)
-    - Static non-linear transformation preserves local proximity and reduces relaive entropy
+    - Static non-linear transformation preserves local proximity and reduces relative entropy
 - User-controlled steering (USC), manual tour
-    - Dynamic linear projections controling the contribution of a selected variable
+    - Dynamic linear projections controlling the contribution of a selected variable
 
-Measures: variation, variable tranparency, clustering, structure
+Measures: variation, variable transparency, clustering, structure
 Design space: data sets, techniques, and measures of comparison
 
 
@@ -255,27 +257,30 @@ Design space: data sets, techniques, and measures of comparison
 
 *future algorithm design*
 
-Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* for common user interface acrross display device
+Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* for common user interface across display devices
 
-- First for 3D scatterplots and then extended to mutli-dimensional function surfaces.
+-Develop for 3D scatterplots and then extended to multi-dimensional function surfaces.
 
 .pull-left[
 &lt;img src="./images/f_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-&lt;img src="./images/RO3MockUp2.PNG" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/RO3MockUp2.PNG" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+
+
 ]
 
 ---
 
 # RO 4) Does UCS in 3D displays provide benefits over 2D displays?
 
-*future usability study* -- lineup desgin *Hofmann et al. 2012*
+*future usability study* -- lineup design *Hofmann et al. 2012*
 
 .pull-left[
-- Visual variant of statistical p-test, pick the real data against data generated from the null hypothesis
-- quantative comparison across display type
+- Visual variant of statistical p-test
+- pick the real data against data generated from the null hypothesis
+- quantitative comparison across display type
 &lt;img src="./images/hofmann12fig.PNG" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -295,8 +300,7 @@ Extend UCS algorithm to 3D projections and integrate with Immersive Analytics To
 ---
 class: center, middle
 
-# Acknowledgements
-
+# Thanks!
 
 Slides created in R using rmarkdown and xaringan
 
