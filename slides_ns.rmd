@@ -15,12 +15,11 @@ output:
 ```{r setup_pres, include=FALSE}
 knitr::opts_chunk$set(
   eval      = TRUE,  # R code 
-  echo      = FALSE, # code
+  echo      = FALSE, # code text
   include   = TRUE,  # plots
   results   = 'asis', # text 'markup' 'asis' 'hold' 'hide'
-  message   = F, warning = F, error = F, cache = F, cache.lazy = F,
+  message   = F, warning = F, error = F, cache = T, cache.lazy = T,
   collapse  = TRUE,
-  comment   = "",
   fig.align = "center"
 )
 
@@ -170,7 +169,7 @@ knitr::include_graphics("./images/flea_holes.gif")
 - Manual choice - *manual tour* user-controlled manipulation of a selected variable *Cook & Buja 1997*
     - Used to explore the sensitivty of the structure to the variables contributing to the porjection
     
-*Work in progress & paper to be submitted to the R Journal:*
+*Algorithm design, work in progress & paper to be submitted to the R Journal:*
 - Algorithm generalising for consumption by graphic envirnments
 - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
@@ -225,7 +224,7 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 
 .pull-right[
 <br><br>
-- Use the Gram-Schmidt process to orthonormaliaze a dimension with a full contribution to the manipution variable
+- Orthonormaliaze a dimension with a full contribution to the manipution variable
 - This provides a means to rotate the basis out of the projection plane (for example, lifting paper off of the table rather than being confined to the surface)
 - Create a sequence of values for the 'out-of-plane' angle that will change the projection coeffienients of the variable
 ]
@@ -252,7 +251,7 @@ array2static_sub(.m_tour = f_mt, .data = f_dat,
 
 ---
 
-# Manual tour allows for UCS
+# Display as an animation
 
 - `aede2` is important for distinguishing between the green and purple clusters
 
@@ -278,9 +277,9 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 ---
 
-# UCS Application -- Hadronic collision experiments
+# Application -- high erergy physics
 
-Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et al. 2018*, studied with guided tours *Cook, et al. 2018*
+Hadronic collision experiment data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et al. 2018*, studied with guided tours *Cook, et al. 2018*
 
 .pull-left[
 ```{r, results='hide'}
@@ -324,27 +323,35 @@ Conclusion, PC6 is important for explaing structure features in the data:
 
 # RO 2) What benefits does UCS provide over popular alternatives?
 
-*Future case study:*
+*Future performance comaparison measured across contemporary benchmark datasets*
 
-- Principal component analysis (PCA) 
+- Principal Component Analysis (PCA) 
     - The static linear transformation that produces linear combinations of the variables in descending order of variation explained
-- T-distributed stochastic neighbor embedding (tSNE)
-    - Static non-linear transformation preserves local proximity
-- User controlled steering (USC), manual tour
-    - Dynamic linear projections
+- Multi-Dimensional Scaling
+    - Non-lieaner dimension reduction that compares pariwise distance bewteen observations
+- T-distributed Stochastic Neighbor Embedding (tSNE)
+    - Static non-linear transformation preserves local proximity and reduces relaive entropy
+- User-controlled steering (USC), manual tour
+    - Dynamic linear projections controling the contribution of a selected variable
+
+Measures: variation, variable tranparency, clustering, structure
+Design space: data sets, techniques, and measures of comparison
+
 
 ---
 
 # RO 3) How do we extend UCS to 3D?
 
 
-*future exploratory design*
+*future algorithm design*
 
-`spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019*
+Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019* for common user interface acrross display device
+
+- First for 3D scatterplots and then extended to mutli-dimensional function surfaces.
 
 .pull-left[
 ```{r, out.width='70%', out.height='70%'}
-knitr::include_graphics("./images/DIS_mt.gif")
+knitr::include_graphics("./images/f_mt.gif")
 ```
 ]
 
@@ -358,12 +365,17 @@ knitr::include_graphics("./images/RO3MockUp2.PNG")
 
 # RO 4) Does UCS in 3D displays provide benefits over 2D displays?
 
-*future empirical study*
+*future usability study* -- lineup desgin *Hofmann et al. 2012*
+
+```{r, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/hofmann12fig.PNG")
+```
 
 **Design space:**
 - Display type: 2D monitor, 3D monitor, head-mount, physical immersion
-- Task type: structure, UCS, clustering, dimensionality, outliers
-- Measures: accuracy, speed, subjective measures (Likert scale), demographic information, cross-departmental comparison(?)
+- Task type: structure, UCS, clustering, dimensionality
+- Measures: accuracy, speed, confidence, preference, demographic information, VR and data visualization expertise
+
 
 ---
 
@@ -383,7 +395,6 @@ Related papers report improved accuracy, precision, and ease of identifying info
 
 - 2D and 3D scatterplots of PCA (linear projection) on a standard monitor, *Gracia et al. 2016*
 - 2D and 3D scatterplots of PCA (linear projection) on a standard monitor and head-mounted VR, *Wagner et al. 2018*
-<!-- - 2D tours: head-tracked VR vs standard monitor, *Nelson et al. 1998* -->
 ]
 
 ---
