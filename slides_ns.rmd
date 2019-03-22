@@ -19,8 +19,8 @@ knitr::opts_chunk$set(
   include   = TRUE,  # plots
   results   = 'asis', # text 'markup' 'asis' 'hold' 'hide'
   message   = F, warning = F, error = F, cache = F, cache.lazy = F,
-  collapse  = TRUE,
-  fig.align = "center"
+  fig.align = "center",
+  collapse  = TRUE
 )
 
 library(spinifex)
@@ -225,6 +225,7 @@ view_basis(f_bas, labels = colnames(f_dat)) +
   geom_point(data = f_proj, 
              mapping = aes(x = X1 - 2, y = X2 - .5, color = f_cat), 
              pch = as.integer(f_cat) + 15)
+
 ```
 ]
 
@@ -290,7 +291,7 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas))
 ### GGANIMATE
 f_mt <- play_manual_tour(data = f_dat, basis = f_bas, manip_var = f_mvar,
                          angle = f_ang, cat_var = f_cat,
-                         render_type = render_gganimate) + coord_fixed()
+                         render_type = render_gganimate)
 
 gganimate::anim_save(filename = "./images/f_mt.gif", animation = f_mt,
                      start_pause = 15, width = 480, height = 480, res = 150)
@@ -321,9 +322,10 @@ DIS_ang  <- .15
 
 ### GGANIMATE
 
-DIS_mt <- play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar,
-                           angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat,
-                           render_type = render_gganimate)
+DIS_mt <- 
+  play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar,
+                   angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat,
+                   render_type = render_gganimate)
 
 gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt,
                      start_pause = 15, width = 480, height = 480, res = 150)
@@ -350,7 +352,7 @@ Conclusion, PC6 is important in explaining the structural features in the data:
 
 # RO 2) What benefits does UCS provide over alternatives?
 
-*Future performance comparison measured across contemporary benchmark datasets*
+*Future work, method: performance comparison*
 
 - Principal Component Analysis (PCA) 
     - A linear transformation that produces linear combinations of the variables in descending order of variation explained
@@ -369,11 +371,12 @@ Design space: data sets, techniques, and measures of comparison
 
 # RO 3) How do we extend UCS to 3D?
 
-*future algorithm design*
+*Future work, method: algorithm design*
 
-Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *(Cordeil 2019)* for common user interface across display devices
+Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *(Cordeil 2019)* for common user interface across display devices.
 
-- Develop for 3D scatterplots and then extend to multi-dimensional function surfaces
+- Extend manipulation spaces to 4D, for variable manipulation on 3D scatterplots 
+- multi-dimensional function surfaces
 
 .pull-left[
 ```{r, out.width='70%', out.height='70%'}
@@ -385,23 +388,40 @@ knitr::include_graphics("./images/f_mt.gif")
 ```{r, out.width='80%', out.height='80%'}
 knitr::include_graphics("./images/RO3MockUp2.PNG")
 ```
+]
 
+---
 
+# RO 3) How do we extend UCS to 3D? (& function surfaces)
+
+*Future work, method: algorithm design*
+
+- multi-dimensional function surfaces
+
+.pull-left[
+```{r, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/f_mt.gif")
+```
+]
+
+.pull-right[
+```{r, out.width='80%', out.height='80%'}
+knitr::include_graphics("./images/rgl_surface.PNG")
+```
 ]
 
 ---
 
 # RO 4) Does UCS in 3D displays provide benefits over 2D displays?
 
-*future usability study* -- lineup design *(Hofmann et al. 2012)*
+*Future work, method: usability study*
 
 .pull-left[
+lineup design *(Hofmann et al. 2012)*
 - Visual variant of statistical p-test
 - Pick the real data against data generated from the null hypothesis
 - Quantitative comparison across display type
-```{r, out.width='80%', out.height='80%'}
-knitr::include_graphics("./images/hofmann12fig.PNG")
-```
+
 ]
 
 .pull-right[
@@ -410,6 +430,10 @@ knitr::include_graphics("./images/hofmann12fig.PNG")
 - Task type: structure, UCS, clustering, dimensionality
 - Measures: accuracy, speed, confidence, preference, demographic information, VR and data visualization expertise
 ]
+
+---
+
+# Contributions
 
 ---
 
