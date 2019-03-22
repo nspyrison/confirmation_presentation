@@ -20,7 +20,7 @@ class: center, middle, inverse, title-slide
 
 
 
-# Motivation
+## Motivation
 
 Exploratory data analysis is important and ubiquitous, and it is important to keep visual interpretation: 
 
@@ -30,11 +30,22 @@ Datasaurus dozen; same means, standard deviations, and correlations, *(Matejka &
 
 ---
 
-# Visualizing multivariate spaces
+## Context: data analysis workflow
 
-- Visualization  multivariate spaces becomes complex; dimension reduction
-- One static projection does not portray all of the variation
-- Dynamic rotations do conveys more variation and more accurate structure
+&lt;img src="./images/data_analysis_workflow.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+*Wickham &amp; Grolemund, 2016*
+
+- Visualization is a key aspect of data analysis workflow loop
+- Reproducible from programmatic scripts (&amp; reduced human error)
+- Transparent research hosted publicly on [github](https://github.com/nspyrison).
+
+---
+
+## Visualizing multivariate spaces
+
+- Visualization  multivariate space is complex; dimension reduction
+- Static projections do not portray all of the variation in the data
+- Dynamic rotations do convey more variation and more accurate structure
 
 **Shadow puppet analogy (linear projection from 3- to 2D):**
 
@@ -42,7 +53,7 @@ Datasaurus dozen; same means, standard deviations, and correlations, *(Matejka &
 
 ---
 
-# Dynamic linear projections, tours   
+## Dynamic linear projections, tours   
 
 **Available on CRAN,** `tourr` R package, *(Wickham et al. 2011)*
 
@@ -66,7 +77,7 @@ guided tour - optimizing holes index:
 
 ---
 
-# 3D and immersive 3D data visualization
+## Visualization dimension: 3D and immersive 3D 
 
 Data visualization has lagged behind in adopting 3D and immersive technologies, despite promising finds
 
@@ -88,18 +99,18 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 
 ---
 
-# Research objectives
+## Research objectives
 &lt;hr&gt;&lt;br&gt;
 
-## 1) How can user-controlled steering (UCS) be generalized to work within graphic-specific environments for 2D projections?
-## 2) Does 2D UCS tours provide benefits over alternatives?
-## 3) How do we extend UCS to 3D?
-## 4) Does UCS in 3D displays provide benefits over 2D displays?
+### 1) How can user-controlled steering (UCS) be generalized to work within graphic-specific environments for 2D projections?
+### 2) Does 2D UCS tours provide benefits over alternatives?
+### 3) How do we extend UCS to 3D?
+### 4) Does UCS in 3D displays provide benefits over 2D displays?
 
 
 ---
 
-# RO 1) How can UCS be generalized to work within graphic-specific environments for 2D projections?
+## RO 1) How can UCS be generalized to work within graphic-specific environments for 2D projections?
 
 - Manual choice - *manual tour* user-controlled manipulation of a selected variable *(Cook &amp; Buja 1997)*
     - Used to explore the sensitivity of the structure to the variables contributing to the projection
@@ -114,14 +125,14 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 
 ---
 
-# RO1 Step 1) Choose a variable of interest
+## RO1 Step 1) Choose a variable of interest
 
 - Starting with the last projection of the previous holes-indexed guided tour:
 
 
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-4-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-5-1.png" width="130%" height="130%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -136,33 +147,33 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0216 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5626 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2703 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; tars2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3007 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1348 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1659 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4568 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; head &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4730 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0532 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2855 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2536 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5505 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.1563 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1462 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4980 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0693 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.7270 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7108 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2741 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; aede3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.6144 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; -0.0259 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2189 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5751 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -172,10 +183,10 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 
 ---
 
-# RO1 Step 2) Create a manipulation space
+## RO1 Step 2) Create a manipulation space
 
 .pull-left[
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -187,18 +198,18 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 
 ---
 
-# RO1 Step 3) Generate the rotation
+## RO1 Step 3) Generate the rotation
 
 *Over the sequence of angles:* rotate the manipulation space for each element
 
 - Project the data
 - Plot the first two variables of the rotated basis and projection
 
-&lt;img src="slides_ns_files/figure-html/unnamed-chunk-7-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_ns_files/figure-html/unnamed-chunk-8-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Display as an animation
+## Display as an animation
 
 - `aede2` is important for distinguishing between the green and purple clusters
 
@@ -210,7 +221,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/)
 
 ---
 
-# Application -- high energy physics
+## Application -- high energy physics
 
 Hadronic collision experiment data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *(Wang, et al. 2018)*, studied with guided tours *(Cook, et al. 2018)*
 
@@ -234,7 +245,7 @@ Conclusion, PC6 is important in explaining the structural features in the data:
 
 ---
 
-# RO 2) What benefits does UCS provide over alternatives?
+## RO 2) What benefits does UCS provide over alternatives?
 
 *Future work, method: performance comparison*
 
@@ -253,11 +264,11 @@ Design space: data sets, techniques, and measures of comparison
 
 ---
 
-# RO 3) How do we extend UCS to 3D?
+## RO 3) How do we extend UCS to 3D?
 
 *Future work, method: algorithm design*
 
-Extend UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *(Cordeil 2019)* for common user interface across display devices.
+Extend the UCS algorithm to 3D projections and integrate with Immersive Analytics Tool Kit, `IATK`, *(Cordeil 2019)* for a common user interface across display devices.
 
 - Extend manipulation spaces to 4D, for variable manipulation on 3D scatterplots 
 - multi-dimensional function surfaces
@@ -272,7 +283,7 @@ Extend UCS algorithm to 3D projections and integrate with Immersive Analytics To
 
 ---
 
-# RO 3) How do we extend UCS to 3D? (&amp; function surfaces)
+## RO 3) How do we extend UCS to 3D? (&amp; function surfaces)
 
 *Future work, method: algorithm design*
 
@@ -288,7 +299,7 @@ Extend UCS algorithm to 3D projections and integrate with Immersive Analytics To
 
 ---
 
-# RO 4) Does UCS in 3D displays provide benefits over 2D displays?
+## RO 4) Does UCS in 3D displays provide benefits over 2D displays?
 
 *Future work, method: usability study*
 
@@ -309,7 +320,13 @@ lineup design *(Hofmann et al. 2012)*
 
 ---
 
-# Contributions
+## Contributions
+&lt;hr&gt;&lt;br&gt;
+
+### 1) A modified UCS algorithm and new implementation applied to contemporary high energy physics and astrophysics applications in 2D animation frameworks.
+### 2) A performance comparison of static and interactive UCS projection techniques assessed on benchmark data sets from the recent literature.
+### 3) A new algorithm for UCS in 3D. With new applications to multi-dim function visualization in 3D.
+### 4) Quantitative understanding of the relative benefits of UCS across 2- and 3D display devices.
 
 ---
 
@@ -320,7 +337,7 @@ lineup design *(Hofmann et al. 2012)*
 ---
 class: center, middle
 
-# Thanks!
+## Thanks!
 
 Slides created in R using rmarkdown and xaringan
 
@@ -339,11 +356,13 @@ Slides -- [github.com/nspyrison/confirmation_talk]( https://github.com/nspyrison
 
 ---
 
-# References (1/2)
+## References (1/2)
 
 *In order of appearance:*
 
 Matejka, J., &amp; Fitzmaurice, G. (2017). Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing. In Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems  - CHI ’17 (pp. 1290–1294). Denver, Colorado, USA: ACM Press. https://doi.org/10.1145/3025453.3025912
+
+Wickham, H., &amp; Grolemund, G. (2016). R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. O’Reilly Media, Inc.
 
 Wickham, H., Cook, D., Hofmann, H., &amp; Buja, A. (2011). tourr : An R Package for Exploring Multivariate Data with Projections. Journal of Statistical Software, 40(2). https://doi.org/10.18637/jss.v040.i02
 
@@ -353,11 +372,11 @@ Hurley, C., &amp; Buja, A. (1990). Analyzing High-Dimensional Data with Motion G
 
 Nelson, L., Cook, D., &amp; Cruz-Neira, C. (1998). XGobi vs the C2: Results of an Experiment Comparing Data Visualization in a 3-D Immersive Virtual Reality Environment with a 2-D Workstation Display. Computational Statistics, 14(1), 39–52.
 
-Lee, J. M., MacLachlan, J., &amp; Wallace, W. A. (1986). The Effects of 3D Imagery on Managerial Data Interpretation. MIS Quarterly, 257–269.
-
 ---
 
-# References (2/3)
+## References (2/3)
+
+Lee, J. M., MacLachlan, J., &amp; Wallace, W. A. (1986). The Effects of 3D Imagery on Managerial Data Interpretation. MIS Quarterly, 257–269.
 
 Wickens, C. D., Merwin, D. H., &amp; Lin, E. L. (1994). Implications of Graphics Enhancements for the Visualization of Scientific Data: Dimensional Integrality, Stereopsis, Motion, and Mesh. Human Factors, 36(1), 44–61.
 
@@ -373,7 +392,7 @@ Cook, D., &amp; Buja, A. (1997). Manual Controls for High-Dimensional Data Proje
 
 ---
 
-# References (3/3)
+## References (3/3)
 
 Wang, B.-T., Hobbs, T. J., Doyle, S., Gao, J., Hou, T.-J., Nadolsky, P. M., &amp; Olness, F. I. (2018). Visualizing the sensitivity of hadronic experiments to nucleon structure. ArXiv Preprint ArXiv:1803.02777.
 
