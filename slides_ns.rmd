@@ -367,7 +367,7 @@ Conclusion, PC6 is important in explaining the structural features in the data:
 
 ## RO 2) What benefits does UCS provide over alternatives?
 
-**Future work, method: performance comparison**
+**Future work, method: performance comparison assessed across benchmark datasets**
 
 - Principal Component Analysis (PCA) 
     - A linear transformation that produces linear combinations of the variables in descending order of variation explained
@@ -453,7 +453,7 @@ Design space:
 
 ### 1) A modified UCS algorithm and new implementation applied to contemporary high energy physics and astrophysics applications in 2D animation frameworks.
 ### 2) A performance comparison of static and interactive UCS projection techniques assessed on benchmark data sets from the recent literature.
-### 3) A new algorithm for UCS in 3D. With new applications to multi-dim function visualization in 3D.
+### 3) A new algorithm for UCS in 3D. With new applications to multi-dimensional function visualization in 3D.
 ### 4) Quantitative understanding of the relative benefits of UCS across 2- and 3D display devices.
 
 ---
@@ -484,9 +484,9 @@ tasks <- tribble(
   "2020-01-01", "2020-04-01", "4) UCS 2D vs 3D", "4) experimental survey",
   "2020-03-01", "2020-09-01", "4) UCS 2D vs 3D", "4) paper (CHI)",
 
-  "2020-04-01", "2020-12-01", "2) UCS vs alts", "2) UCS vs alternatives",
-  "2020-04-01", "2020-08-01", "2) UCS vs alts", "2) code",
-  "2020-06-01", "2020-12-01", "2) UCS vs alts", "2) paper (VAST)",
+  "2020-04-01", "2020-12-01", "2) 2D UCS vs alts", "2) UCS vs alternatives",
+  "2020-04-01", "2020-08-01", "2) 2D UCS vs alts", "2) code",
+  "2020-06-01", "2020-12-01", "2) 2D UCS vs alts", "2) paper (VAST)",
   
   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
   "2020-09-01", "2021-04-01", "Milestones", "thesis composition"
@@ -561,7 +561,7 @@ Slides -- [github.com/nspyrison/confirmation_talk]( https://github.com/nspyrison
 
 ---
 
-## References (1/2)
+## References (1/3)
 
 *In order of appearance:*
 
@@ -590,8 +590,6 @@ Tory, M., Kirkpatrick, A. E., Atkins, M. S., & Moller, T. (2006). Visualization 
 Gracia, A., González, S., Robles, V., Menasalvas, E., & von Landesberger, T. (2016). New Insights into the Suitability of the Third Dimension for Visualizing Multivariate/Multidimensional Data: A Study Based on Loss of Quality Quantification. Information Visualization, 15(1), 3–30. https://doi.org/10.1177/1473871614556393
 
 Wagner Filho, J., Rey, M., Freitas, C., & Nedel, L. (2018). Immersive Visualization of Abstract Information: An Evaluation on Dimensionally-Reduced Data Scatterplots.
-
-Sedlmair, M., Munzner, T., & Tory, M. (2013). Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices. IEEE Transactions on Visualization & Computer Graphics, (12), 2634–2643.
 
 Cook, D., & Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464–480. https://doi.org/10.2307/1390747
 
