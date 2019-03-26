@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 )
 
 library(spinifex)
-library(gganimate) 
+library(gganimate)
 library(ggplot2)
 library(magrittr)
 library(knitr)
@@ -90,7 +90,7 @@ array2static_sub <- function(.m_tour, .data, .m_var, .cat, .mag =2.2, .sub=3)
   # PROJECTION
   gg2 <- gg1 +
     # PROJ DATA POINTS
-    geom_point(data = data_grid, size = .7,
+    geom_point(data = data_grid, size = 2,
                mapping = aes(x = V1 + x, y = V2 + y, color = cat),
                shape = as.integer(cat) + 15) +
     # PROJ DATA FRAME NUM
@@ -152,7 +152,7 @@ knitr::include_graphics("./images/data_analysis_workflow.png")
 --
 
 .pull-left[
-grand tour (random):
+.center[grand tour (random):]
 ```{r, echo=F, out.height= '70%', out.width='70%'}
 knitr::include_graphics("./images/flea_grand.gif")
 ```
@@ -161,7 +161,7 @@ knitr::include_graphics("./images/flea_grand.gif")
 --
 
 .pull-right[
-guided tour - optimizing holes index:
+.center[guided tour - optimizing holes index:]
 ```{r, echo=F, out.height= '70%', out.width='70%'}
 knitr::include_graphics("./images/flea_holes.gif")
 ```
@@ -186,7 +186,7 @@ knitr::include_graphics("./images/nelson98fig.PNG")
 .pull-right[
 3D visuals generally convey more information with more speed, but  manipulation is slower when compared with orthogonal 2D, though 3D with 2D gives the best perception *[Lee 1986, Wickens 1994, Tory 2006]*
 
-Embedded multivariate data in immersive 3D report improved accuracy and faster response time, but a slower manipulation speed and less comfort *[Gracia 2016, Wagner 2018, Nelson 1998, counterexample: Sedlmair 2013]*
+Embedded multivariate data in immersive 3D report improved accuracy and faster response time, but a slower manipulation speed and less comfort *[Gracia 2016, Wagner 2018, Nelson 1998]*
 
 Modern VR equipment has improved quality, increased audience, and reduced the costs of VR, it is timely to research dynamic projections in VR
 ]
@@ -206,7 +206,7 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 
 ## RO 1) How can UCS be generalized to work within graphic-specific environments for 2D projections?
 
-- Manual choice - *manual tour* user-controlled manipulation of a selected variable *(Cook & Buja 1997)*
+- *manual tour* user-controlled manipulation of a selected variable *(Cook & Buja 1997)*
     - Used to explore the sensitivity of the structure to the variables contributing to the projection
     
 **Algorithm design, work in progress & paper to be submitted to the R Journal:**
@@ -224,7 +224,7 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 - Starting with the last projection of the previous holes-indexed guided tour:
 
 ```{r setup, results='hide'}
-f_dat  <- tourr::rescale(flea[,1:6])
+f_dat  <- tourr::rescale(tourr::flea[,1:6])
 f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
 f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
@@ -233,9 +233,10 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas))
 ```
 
 .pull-left[
+.center[Projected data and reference axes]
 ```{r, fig.height=6, fig.width=12, out.height='130%', out.width='130%'}
 view_basis(f_bas, labels = colnames(f_dat)) +
-  geom_point(data = f_proj, 
+  geom_point(data = f_proj, size=3,
              mapping = aes(x = X1 - 2, y = X2 - .5, color = f_cat), 
              pch = as.integer(f_cat) + 15)
 
@@ -243,6 +244,7 @@ view_basis(f_bas, labels = colnames(f_dat)) +
 ]
 
 .pull-right[
+.center[*XY* coefficients of each variable]
 ```{r}
 rownames(f_bas) <- colnames(f_dat)
 colnames(f_bas) <- c("x", "y")
@@ -280,7 +282,7 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 - Plot the first two variables of the rotated basis and projection
 
 ```{r, fig.hight=2, out.width='40%', out.height='40%'}
-f_ang <- .35
+f_ang <- .25
 f_mt <- manual_tour(basis = f_bas,manip_var = f_mvar,angle = f_ang)
 
 array2static_sub(.m_tour = f_mt, .data = f_dat,
@@ -438,7 +440,7 @@ lineup design *(Hofmann et al. 2012)*
 ]
 
 .pull-right[
-**Design space:**
+Design space:
 - Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality
 - Measures: accuracy, speed, confidence, preference, demographic information, VR and data visualization expertise
