@@ -188,7 +188,7 @@ knitr::include_graphics("./images/nelson98fig.PNG")
 
 Embedded multivariate data in immersive 3D report improved accuracy and faster response time, but a slower manipulation speed and less comfort *[Gracia 2016, Wagner 2018, Nelson 1998]*
 
-Modern VR equipment has improved quality, increased audience, and reduced the costs of VR, it is timely to research dynamic projections in VR
+Modern VR equipment has improved quality, attracted wider audiences, and reduced the costs of VR, it is timely to research dynamic projections in VR
 ]
 
 ---
@@ -209,7 +209,7 @@ Modern VR equipment has improved quality, increased audience, and reduced the co
 - *manual tour* user-controlled manipulation of a selected variable *(Cook & Buja 1997)*
     - Used to explore the sensitivity of the structure to the variables contributing to the projection
     
-**Algorithm design, work in progress & paper to be submitted to the R Journal:**
+**Work in progress. Method: Algorithm design & paper to be submitted to the R Journal:**
 - Algorithm generalizing for consumption by graphics environments
 - R implementation via the package `spinifex`, available on [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex)
     `devtools::install_github("nspyrison/spinifex")`
@@ -281,8 +281,8 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 - Project the data
 - Plot the first two variables of the rotated basis and projection
 
-```{r, fig.hight=2, out.width='40%', out.height='40%'}
-f_ang <- .25
+```{r, fig.hight=2, out.width='45%', out.height='45%'}
+f_ang <- .15
 f_mt <- manual_tour(basis = f_bas,manip_var = f_mvar,angle = f_ang)
 
 array2static_sub(.m_tour = f_mt, .data = f_dat,
@@ -372,9 +372,9 @@ Conclusion, PC6 is important in explaining the structural features in the data:
 - Principal Component Analysis (PCA) 
     - A linear transformation that produces linear combinations of the variables in descending order of variation explained
 - Multi-Dimensional Scaling (MDS)
-    - Non-leaner dimension reduction that compares the pairwise distance between observations
+    - Non-linear dimension reduction that compares the pairwise distance between observations
 - T-distributed Stochastic Neighbor Embedding (tSNE)
-    - Static non-linear transformation preserves local proximity and reduces relative entropy
+    - Non-linear transformation preserves local proximity and reduces relative entropy
 - User-controlled steering (USC), manual tour
     - Dynamic linear projections controlling the contribution of a selected variable
 
@@ -443,7 +443,7 @@ lineup design *(Hofmann et al. 2012)*
 Design space:
 - Display type: 2D monitor, 3D monitor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality
-- Measures: accuracy, speed, confidence, preference, demographic information, VR and data visualization expertise
+- Measures: accuracy, speed, confidence, preference, demographic information, VR and data visualization experience
 ]
 
 ---
