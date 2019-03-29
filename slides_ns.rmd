@@ -305,7 +305,7 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas))
 
 ### GGANIMATE
 f_mt <- play_manual_tour(data = f_dat, basis = f_bas, manip_var = f_mvar,
-                         angle = f_ang, cat_var = f_cat,
+                         angle = f_ang, col = f_cat,
                          render_type = render_gganimate)
 
 gganimate::anim_save(filename = "./images/f_mt.gif", animation = f_mt,
@@ -339,7 +339,7 @@ DIS_ang  <- .15
 
 DIS_mt <- 
   play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar,
-                   angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat,
+                   angle = DIS_ang, axes="bottomleft", col = DIS_cat,
                    render_type = render_gganimate)
 
 gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt,
